@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zakariae Chelle - Full Stack Developer Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-text">Zakariae Chelle</span>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="#home" class="nav-link active" data-translate="nav.home">Home</a>
+                <a href="#about" class="nav-link" data-translate="nav.about">About</a>
+                <a href="#education" class="nav-link" data-translate="nav.education">Education</a>
+                <a href="#skills" class="nav-link" data-translate="nav.skills">Skills</a>
+                <a href="#projects" class="nav-link" data-translate="nav.projects">Projects</a>
+                <a href="#contact" class="nav-link" data-translate="nav.contact">Contact</a>
+            </div>
+            <div class="nav-controls">
+                <div class="language-selector">
+                    <button class="language-btn" id="language-btn">
+                        <span class="current-lang">🇺🇸 EN</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="language-dropdown" id="language-dropdown">
+                        <div class="language-option" data-lang="en">
+                            <span class="flag">🇺🇸</span>
+                            <span>English</span>
+                        </div>
+                        <div class="language-option" data-lang="fr">
+                            <span class="flag">🇫🇷</span>
+                            <span>Français</span>
+                        </div>
+                        <div class="language-option" data-lang="ar">
+                            <span class="flag">🇲🇦</span>
+                            <span>العربية</span>
+                        </div>
+                    </div>
+                </div>
+                <button class="theme-toggle" id="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        <span class="gradient-text">Zakariae Chelle</span>
+                    </h1>
+                    <h2 class="hero-subtitle" data-translate="hero.subtitle">Full Stack Developer & Computer Science Graduate</h2>
+                    <p class="hero-description" data-translate="hero.description">
+                        Specialized in Angular, TypeScript, and modern web technologies.
+                        Graduate in Computer Engineering from Université Abdelmalek Essaadi.
+                    </p>
+                    <div class="hero-info">
+                        <div class="info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span data-translate="hero.location">Tanger, Morocco</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>zakariae.chelle@example.com</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-phone"></i>
+                            <span>+212 600 000 000</span>
+                        </div>
+                    </div>
+                    <div class="hero-buttons">
+                        <a href="#projects" class="btn btn-primary" data-translate="hero.viewWork">View My Work</a>
+                        <a href="#contact" class="btn btn-outline" data-translate="hero.getInTouch">Get In Touch</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="image-container">
+                        <div class="profile-circle">
+                            <span class="profile-text">ZC</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-translate="about.title">About Me</h2>
+                <p class="section-subtitle" data-translate="about.subtitle">Get to know me better</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p class="about-description" data-translate="about.description1">
+                        I'm a passionate Full Stack Developer with a strong academic background in Computer Science.
+                        I graduated with a Bachelor's degree in Computer Engineering (Génie Informatique) from
+                        Université Abdelmalek Essaadi in Tangier, Morocco.
+                    </p>
+                    <p class="about-description" data-translate="about.description2">
+                        My expertise lies in building scalable web applications using modern technologies like Angular,
+                        TypeScript, and Node.js. I have a particular passion for creating dynamic forms, diagnostic tools,
+                        and survey systems that provide excellent user experiences.
+                    </p>
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <h3 class="stat-number">4+</h3>
+                            <p class="stat-label" data-translate="about.stats.study">Years of Study</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3 class="stat-number">15+</h3>
+                            <p class="stat-label" data-translate="about.stats.projects">Projects Completed</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3 class="stat-number">3</h3>
+                            <p class="stat-label" data-translate="about.stats.languages">Languages Spoken</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-skills">
+                    <h3 data-translate="about.strengths.title">Core Strengths</h3>
+                    <ul class="strengths-list">
+                        <li><i class="fas fa-check"></i> <span data-translate="about.strengths.item1">Component-driven architecture in Angular</span></li>
+                        <li><i class="fas fa-check"></i> <span data-translate="about.strengths.item2">Efficient form validation & dynamic input rendering</span></li>
+                        <li><i class="fas fa-check"></i> <span data-translate="about.strengths.item3">Clean code practices and strong debugging skills</span></li>
+                        <li><i class="fas fa-check"></i> <span data-translate="about.strengths.item4">Experience building reusable UI components</span></li>
+                        <li><i class="fas fa-check"></i> <span data-translate="about.strengths.item5">Focused on user experience and accessibility</span></li>
+                        <li><i class="fas fa-check"></i> <span data-translate="about.strengths.item6">Multilingual development (Arabic, French, English)</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="education">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-translate="education.title">Education</h2>
+                <p class="section-subtitle" data-translate="education.subtitle">My academic journey</p>
+            </div>
+            <div class="education-content">
+                <div class="education-item">
+                    <div class="education-icon">🎓</div>
+                    <div class="education-details">
+                        <h3 data-translate="education.bachelor.title">Bachelor's Degree in Computer Engineering</h3>
+                        <h4 data-translate="education.bachelor.subtitle">Licence en Sciences et Techniques - Génie Informatique</h4>
+                        <p class="institution" data-translate="education.bachelor.institution">Université Abdelmalek Essaadi, Faculté des Sciences et Techniques, Tanger</p>
+                        <p class="duration">2019 - 2023</p>
+                        <p class="mention" data-translate="education.bachelor.mention">Mention: Assez Bien (Good)</p>
+                        <p class="description" data-translate="education.bachelor.description">Comprehensive program covering software engineering, algorithms, data structures, and modern web technologies.</p>
+                    </div>
+                </div>
+                
+                <div class="education-item">
+                    <div class="education-icon">📚</div>
+                    <div class="education-details">
+                        <h3 data-translate="education.diploma.title">University Diploma in Science and Technology</h3>
+                        <h4 data-translate="education.diploma.subtitle">Diplôme d'Études Universitaires en Sciences et Techniques</h4>
+                        <p class="institution" data-translate="education.diploma.institution">Université Abdelmalek Essaadi, Faculté des Sciences et Techniques, Tanger</p>
+                        <p class="duration">2019 - 2022</p>
+                        <p class="mention" data-translate="education.diploma.mention">Filière: Mathématiques-Informatique-Physique | Mention: Passable</p>
+                    </div>
+                </div>
+
+                <div class="education-item">
+                    <div class="education-icon">🏆</div>
+                    <div class="education-details">
+                        <h3 data-translate="education.bac.title">Baccalauréat in Physical Sciences</h3>
+                        <h4 data-translate="education.bac.subtitle">2ème Année BAC Sciences Physiques</h4>
+                        <p class="institution" data-translate="education.bac.institution">Lycée Qualifiant Abdellah Chefchaouni, Tanger</p>
+                        <p class="duration">2019</p>
+                        <p class="mention" data-translate="education.bac.mention">Mention: Bien (Good)</p>
+                        <p class="description" data-translate="education.bac.description">Specialized in Physical Sciences with strong foundation in Mathematics, Physics, and Chemistry.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-translate="skills.title">Technical Skills</h2>
+                <p class="section-subtitle" data-translate="skills.subtitle">Technologies I work with</p>
+            </div>
+            <div class="skills-content">
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3 data-translate="skills.frontend.title">Frontend Development</h3>
+                        <div class="skill-items">
+                            <div class="skill-item">
+                                <span class="skill-name">Angular</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="95"></div>
+                                </div>
+                                <span class="skill-percentage">95%</span>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">TypeScript</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="90"></div>
+                                </div>
+                                <span class="skill-percentage">90%</span>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">SCSS/CSS</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="85"></div>
+                                </div>
+                                <span class="skill-percentage">85%</span>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">HTML5</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="95"></div>
+                                </div>
+                                <span class="skill-percentage">95%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3 data-translate="skills.backend.title">Backend Development</h3>
+                        <div class="skill-items">
+                            <div class="skill-item">
+                                <span class="skill-name">Node.js</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="80"></div>
+                                </div>
+                                <span class="skill-percentage">80%</span>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">MongoDB</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="75"></div>
+                                </div>
+                                <span class="skill-percentage">75%</span>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">Express.js</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="70"></div>
+                                </div>
+                                <span class="skill-percentage">70%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3 data-translate="skills.tools.title">Tools & Technologies</h3>
+                        <div class="skill-items">
+                            <div class="skill-item">
+                                <span class="skill-name">Git</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="85"></div>
+                                </div>
+                                <span class="skill-percentage">85%</span>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">Figma</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="70"></div>
+                                </div>
+                                <span class="skill-percentage">70%</span>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">ngx-translate</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="90"></div>
+                                </div>
+                                <span class="skill-percentage">90%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="languages-section">
+                    <h3 data-translate="skills.languages.title">Languages</h3>
+                    <div class="languages-grid">
+                        <div class="language-item">
+                            <div class="language-flag">🇲🇦</div>
+                            <div class="language-info">
+                                <h4 data-translate="skills.languages.arabic">Arabic</h4>
+                                <p data-translate="skills.languages.native">Native</p>
+                            </div>
+                        </div>
+                        <div class="language-item">
+                            <div class="language-flag">🇫🇷</div>
+                            <div class="language-info">
+                                <h4 data-translate="skills.languages.french">French</h4>
+                                <p data-translate="skills.languages.fluent">Fluent</p>
+                            </div>
+                        </div>
+                        <div class="language-item">
+                            <div class="language-flag">🇺🇸</div>
+                            <div class="language-info">
+                                <h4 data-translate="skills.languages.english">English</h4>
+                                <p data-translate="skills.languages.intermediate">Intermediate</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-translate="projects.title">Projects & Experience</h2>
+                <p class="section-subtitle" data-translate="projects.subtitle">Some of my recent work</p>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-icon">🔧</div>
+                    <div class="project-content">
+                        <h3 data-translate="projects.sav.title">SAV Management System</h3>
+                        <p data-translate="projects.sav.description">Comprehensive ticketing and diagnostic system with structured nested characteristics and multilingual support using ngx-translate.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Angular</span>
+                            <span class="tech-tag">TypeScript</span>
+                            <span class="tech-tag">ngx-translate</span>
+                        </div>
+                        <ul class="project-features">
+                            <li data-translate="projects.sav.feature1">Ticketing System</li>
+                            <li data-translate="projects.sav.feature2">Diagnostic Tools</li>
+                            <li data-translate="projects.sav.feature3">Multilingual Support</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-icon">📋</div>
+                    <div class="project-content">
+                        <h3 data-translate="projects.survey.title">Dynamic Survey Builder</h3>
+                        <p data-translate="projects.survey.description">Advanced survey system with reusable components for nested questions and dynamic form rendering using Angular FormArray.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Angular</span>
+                            <span class="tech-tag">FormArray</span>
+                            <span class="tech-tag">Dynamic Forms</span>
+                        </div>
+                        <ul class="project-features">
+                            <li data-translate="projects.survey.feature1">Nested Questions</li>
+                            <li data-translate="projects.survey.feature2">Group Logic</li>
+                            <li data-translate="projects.survey.feature3">Dynamic Rendering</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-icon">📱</div>
+                    <div class="project-content">
+                        <h3 data-translate="projects.android.title">Android To-Do App</h3>
+                        <p data-translate="projects.android.description">Minimalist productivity application with task tracking and Firebase synchronization for seamless cross-device experience.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Android</span>
+                            <span class="tech-tag">Firebase</span>
+                            <span class="tech-tag">Material Design</span>
+                        </div>
+                        <ul class="project-features">
+                            <li data-translate="projects.android.feature1">Task Management</li>
+                            <li data-translate="projects.android.feature2">Cloud Sync</li>
+                            <li data-translate="projects.android.feature3">Offline Support</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-icon">📦</div>
+                    <div class="project-content">
+                        <h3 data-translate="projects.product.title">Product Characteristics Module</h3>
+                        <p data-translate="projects.product.description">Hierarchical product management system with GroupeCaracteristique → CaracteristiqueDemandable → InstanceCaracteristique architecture.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Angular</span>
+                            <span class="tech-tag">TypeScript</span>
+                            <span class="tech-tag">Component Architecture</span>
+                        </div>
+                        <ul class="project-features">
+                            <li data-translate="projects.product.feature1">Hierarchical Model</li>
+                            <li data-translate="projects.product.feature2">Diagnostic UI</li>
+                            <li data-translate="projects.product.feature3">Product Management</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-icon">🗃️</div>
+                    <div class="project-content">
+                        <h3 data-translate="projects.table.title">Dynamic Table Component</h3>
+                        <p data-translate="projects.table.description">Reusable Angular table component with advanced features including sorting, filtering, and responsive design.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Angular</span>
+                            <span class="tech-tag">Responsive Design</span>
+                            <span class="tech-tag">Component Library</span>
+                        </div>
+                        <ul class="project-features">
+                            <li data-translate="projects.table.feature1">Dynamic Headers</li>
+                            <li data-translate="projects.table.feature2">Sorting & Filtering</li>
+                            <li data-translate="projects.table.feature3">Responsive Layout</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-icon">🌍</div>
+                    <div class="project-content">
+                        <h3 data-translate="projects.multilang.title">Multi-language System</h3>
+                        <p data-translate="projects.multilang.description">Comprehensive internationalization system supporting Arabic, French, and English with live language switching.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">ngx-translate</span>
+                            <span class="tech-tag">i18n</span>
+                            <span class="tech-tag">JSON</span>
+                        </div>
+                        <ul class="project-features">
+                            <li data-translate="projects.multilang.feature1">Live Language Switch</li>
+                            <li data-translate="projects.multilang.feature2">RTL Support</li>
+                            <li data-translate="projects.multilang.feature3">Dynamic Updates</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-icon">🛒</div>
+                    <div class="project-content">
+                        <h3 data-translate="projects.marketplace.title">Full Marketplace Platform</h3>
+                        <p data-translate="projects.marketplace.description">End-to-end marketplace solution including product listings, cart system, company/event presentations, and reservation management.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Angular</span>
+                            <span class="tech-tag">TypeScript</span>
+                            <span class="tech-tag">Reactive Forms</span>
+                        </div>
+                        <ul class="project-features">
+                            <li data-translate="projects.marketplace.feature1">Cart & Checkout Flow</li>
+                            <li data-translate="projects.marketplace.feature2">Reservation Integration</li>
+                            <li data-translate="projects.marketplace.feature3">Company & Event Pages</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-icon">🎯</div>
+                    <div class="project-content">
+                        <h3 data-translate="projects.filtering.title">Dynamic Filtering Engine</h3>
+                        <p data-translate="projects.filtering.description">Reusable and scalable filtering system for multi-criteria search across objects, surveys, and reservations.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Angular</span>
+                            <span class="tech-tag">Reactive Forms</span>
+                            <span class="tech-tag">Dynamic UI</span>
+                        </div>
+                        <ul class="project-features">
+                            <li data-translate="projects.filtering.feature1">Multi-Criteria Filters</li>
+                            <li data-translate="projects.filtering.feature2">Filter Chips & Reset</li>
+                            <li data-translate="projects.filtering.feature3">Debounced Search</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-icon">🔗</div>
+                    <div class="project-content">
+                        <h3 data-translate="projects.relation.title">Relation-Based Data Binding</h3>
+                        <p data-translate="projects.relation.description">Built structured UI logic to group and display data by contextual relations in dynamic forms and lists.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Angular</span>
+                            <span class="tech-tag">UI Grouping</span>
+                            <span class="tech-tag">Reactive Forms</span>
+                        </div>
+                        <ul class="project-features">
+                            <li data-translate="projects.relation.feature1">Group-Based Sections</li>
+                            <li data-translate="projects.relation.feature2">Two-Way Form Binding</li>
+                            <li data-translate="projects.relation.feature3">Clean Component Structure</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-icon">⚙️</div>
+                    <div class="project-content">
+                        <h3 data-translate="projects.devtools.title">Dev Tools & Automation</h3>
+                        <p data-translate="projects.devtools.description">Created CLI tools and shell scripts to streamline development tasks like killing processes and port management.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Bash</span>
+                            <span class="tech-tag">CLI</span>
+                            <span class="tech-tag">Automation</span>
+                        </div>
+                        <ul class="project-features">
+                            <li data-translate="projects.devtools.feature1">Port Cleanup Scripts</li>
+                            <li data-translate="projects.devtools.feature2">Process Monitoring</li>
+                            <li data-translate="projects.devtools.feature3">Quick Environment Setup</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-icon">🧮</div>
+                    <div class="project-content">
+                        <h3 data-translate="projects.checklist.title">Checklist & Diagnostic Tool</h3>
+                        <p data-translate="projects.checklist.description">Built a dynamic checklist engine to assist testers in identifying issues during product evaluation and maintenance processes.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Angular</span>
+                            <span class="tech-tag">Reactive Forms</span>
+                            <span class="tech-tag">Smart UI</span>
+                        </div>
+                        <ul class="project-features">
+                            <li data-translate="projects.checklist.feature1">Dynamic Checklists</li>
+                            <li data-translate="projects.checklist.feature2">Real-time State Updates</li>
+                            <li data-translate="projects.checklist.feature3">Support for Conditional Logic</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-icon">📊</div>
+                    <div class="project-content">
+                        <h3 data-translate="projects.dashboard.title">Admin Dashboard Panels</h3>
+                        <p data-translate="projects.dashboard.description">Developed reusable and toggleable admin panels for viewing, filtering, and managing backend data entities in a user-friendly interface.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Angular</span>
+                            <span class="tech-tag">RxJS</span>
+                            <span class="tech-tag">Material Design</span>
+                        </div>
+                        <ul class="project-features">
+                            <li data-translate="projects.dashboard.feature1">Collapsible Sections</li>
+                            <li data-translate="projects.dashboard.feature2">Filterable Data Tables</li>
+                            <li data-translate="projects.dashboard.feature3">Modular Panel Components</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-translate="contact.title">Get In Touch</h2>
+                <p class="section-subtitle" data-translate="contact.subtitle">Let's work together</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3 data-translate="contact.connect">Let's Connect</h3>
+                    <p data-translate="contact.description">I'm always interested in new opportunities and exciting projects. Feel free to reach out if you'd like to work together!</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4 data-translate="contact.email">Email</h4>
+                                <p>zakariae.chelle@example.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <h4 data-translate="contact.phone">Phone</h4>
+                                <p>+212 600 000 000</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h4 data-translate="contact.location">Location</h4>
+                                <p data-translate="contact.locationValue">Tanger, Morocco</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <form class="contact-form" id="contact-form">
+                    <div class="form-group">
+                        <label for="name" data-translate="contact.form.name">Your Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email" data-translate="contact.form.email">Your Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject" data-translate="contact.form.subject">Subject</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message" data-translate="contact.form.message">Your Message</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        <span data-translate="contact.form.send">Send Message</span>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-text">
+                    <p data-translate="footer.copyright">&copy; 2024 Zakariae Chelle. All rights reserved.</p>
+                    <p data-translate="footer.built">Built with HTML, CSS, and JavaScript</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#home" data-translate="nav.home">Home</a>
+                    <a href="#about" data-translate="nav.about">About</a>
+                    <a href="#projects" data-translate="nav.projects">Projects</a>
+                    <a href="#contact" data-translate="nav.contact">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
