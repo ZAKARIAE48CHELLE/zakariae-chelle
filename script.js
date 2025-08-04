@@ -792,54 +792,110 @@ function handleNavbarScroll() {
 }
 
 // Contact Form Handling
+// function handleContactForm(e) {
+//   e.preventDefault()
+
+//   const submitButton = contactForm.querySelector('button[type="submit"]')
+//   const originalText = submitButton.innerHTML
+
+//   // Get current language for success message
+//   const successMessages = {
+//     en: "Message sent successfully!",
+//     fr: "Message envoyé avec succès!",
+//     ar: "تم إرسال الرسالة بنجاح!",
+//   }
+
+//   // Show loading state
+//   const loadingTexts = {
+//     en: "Sending...",
+//     fr: "Envoi en cours...",
+//     ar: "جاري الإرسال...",
+//   }
+
+//   submitButton.innerHTML = `<span>${loadingTexts[currentLanguage]}</span>`
+//   submitButton.disabled = true
+
+//   // Simulate form submission
+//   setTimeout(() => {
+//     // Reset form
+//     contactForm.reset()
+
+//     // Show success message
+//     const sentTexts = {
+//       en: "Message Sent!",
+//       fr: "Message Envoyé!",
+//       ar: "تم الإرسال!",
+//     }
+
+//     submitButton.innerHTML = `<i class="fas fa-check"></i> ${sentTexts[currentLanguage]}`
+//     submitButton.style.background = "#48bb78"
+
+//     // Reset button after 3 seconds
+//     setTimeout(() => {
+//       submitButton.innerHTML = originalText
+//       submitButton.disabled = false
+//       submitButton.style.background = ""
+//     }, 3000)
+
+//     alert(successMessages[currentLanguage])
+//   }, 2000)
+// }
+
 function handleContactForm(e) {
-  e.preventDefault()
+  e.preventDefault();
 
-  const submitButton = contactForm.querySelector('button[type="submit"]')
-  const originalText = submitButton.innerHTML
+  const submitButton = contactForm.querySelector('button[type="submit"]');
+  const originalText = submitButton.innerHTML;
 
-  // Get current language for success message
-  const successMessages = {
-    en: "Message sent successfully!",
-    fr: "Message envoyé avec succès!",
-    ar: "تم إرسال الرسالة بنجاح!",
-  }
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const subject = document.getElementById("subject").value;
+  const message = document.getElementById("message").value;
 
-  // Show loading state
   const loadingTexts = {
     en: "Sending...",
     fr: "Envoi en cours...",
     ar: "جاري الإرسال...",
-  }
+  };
+  const successMessages = {
+    en: "Message sent successfully!",
+    fr: "Message envoyé avec succès!",
+    ar: "تم إرسال الرسالة بنجاح!",
+  };
+  const sentTexts = {
+    en: "Message Sent!",
+    fr: "Message Envoyé!",
+    ar: "تم الإرسال!",
+  };
 
-  submitButton.innerHTML = `<span>${loadingTexts[currentLanguage]}</span>`
-  submitButton.disabled = true
+  submitButton.innerHTML = `<span>${loadingTexts[currentLanguage]}</span>`;
+  submitButton.disabled = true;
 
-  // Simulate form submission
-  setTimeout(() => {
-    // Reset form
-    contactForm.reset()
+  emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", {
+    name,
+    email,
+    subject,
+    message,
+  }).then(() => {
+    contactForm.reset();
+    submitButton.innerHTML = `<i class="fas fa-check"></i> ${sentTexts[currentLanguage]}`;
+    submitButton.style.background = "#48bb78";
 
-    // Show success message
-    const sentTexts = {
-      en: "Message Sent!",
-      fr: "Message Envoyé!",
-      ar: "تم الإرسال!",
-    }
-
-    submitButton.innerHTML = `<i class="fas fa-check"></i> ${sentTexts[currentLanguage]}`
-    submitButton.style.background = "#48bb78"
-
-    // Reset button after 3 seconds
     setTimeout(() => {
-      submitButton.innerHTML = originalText
-      submitButton.disabled = false
-      submitButton.style.background = ""
-    }, 3000)
+      submitButton.innerHTML = originalText;
+      submitButton.disabled = false;
+      submitButton.style.background = "";
+    }, 3000);
 
-    alert(successMessages[currentLanguage])
-  }, 2000)
+    alert(successMessages[currentLanguage]);
+  }, (error) => {
+    console.error("EmailJS error:", error);
+    alert("An error occurred while sending the message. Please try again later.");
+    submitButton.innerHTML = originalText;
+    submitButton.disabled = false;
+  });
 }
+
 
 // Smooth Scroll to Section
 function scrollToSection(sectionId) {
