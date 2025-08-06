@@ -619,6 +619,215 @@ const translations = {
       built: "مبني بـ HTML وCSS وJavaScript",
     },
   },
+  es: {
+  nav: {
+    home: "Inicio",
+    about: "Sobre mí",
+    education: "Educación",
+    skills: "Habilidades",
+    projects: "Proyectos",
+    contact: "Contacto",
+  },
+  hero: {
+    subtitle: "Desarrollador Full Stack y Graduado en Ciencias de la Computación",
+    description:
+      "Especializado en Angular, TypeScript y tecnologías web modernas. Graduado en Ingeniería Informática por la Universidad Abdelmalek Essaadi.",
+    location: "Tánger, Marruecos",
+    viewWork: "Ver mi trabajo",
+    getInTouch: "Contactar",
+  },
+  about: {
+    title: "Sobre mí",
+    subtitle: "Conóceme mejor",
+    description1:
+      "Soy un apasionado Desarrollador Full Stack con una sólida formación académica en Ciencias de la Computación. Me gradué con una Licenciatura en Ingeniería Informática de la Universidad Abdelmalek Essaadi en Tánger, Marruecos.",
+    description2:
+      "Mi experiencia se centra en construir aplicaciones web escalables usando tecnologías modernas como Angular, TypeScript y Node.js. Tengo una pasión especial por crear formularios dinámicos, herramientas de diagnóstico y sistemas de encuestas que brindan excelentes experiencias de usuario.",
+    stats: {
+      study: "Años de estudio",
+      projects: "Proyectos completados",
+      languages: "Idiomas hablados",
+    },
+    strengths: {
+      title: "Fortalezas principales",
+      item1: "Arquitectura basada en componentes en Angular",
+      item2: "Validación eficiente de formularios y renderizado dinámico de entradas",
+      item3: "Prácticas de código limpio y sólidas habilidades de depuración",
+      item4: "Experiencia en la creación de componentes UI reutilizables",
+      item5: "Enfoque en la experiencia de usuario y accesibilidad",
+      item6: "Desarrollo multilingüe (Árabe, Francés, Inglés)",
+    },
+  },
+  education: {
+    title: "Educación",
+    subtitle: "Mi trayectoria académica",
+    bachelor: {
+      title: "Licenciatura en Ingeniería Informática",
+      subtitle: "Licenciatura en Ciencias y Técnicas - Ingeniería Informática",
+      institution: "Universidad Abdelmalek Essaadi, Facultad de Ciencias y Técnicas, Tánger",
+      mention: "Mención: Bastante Bien",
+      description:
+        "Programa integral que abarca ingeniería de software, algoritmos, estructuras de datos y tecnologías web modernas.",
+    },
+    diploma: {
+      title: "Diploma Universitario en Ciencia y Tecnología",
+      subtitle: "Diploma de Estudios Universitarios en Ciencia y Tecnología",
+      institution: "Universidad Abdelmalek Essaadi, Facultad de Ciencias y Técnicas, Tánger",
+      mention: "Especialidad: Matemáticas-Informática-Física | Mención: Aprobado",
+    },
+    bac: {
+      title: "Bachillerato en Ciencias Físicas",
+      subtitle: "2º Año de Bachillerato en Ciencias Físicas",
+      institution: "Liceo Abdellah Chefchaouni, Tánger",
+      mention: "Mención: Bien",
+      description: "Especializado en Ciencias Físicas con una sólida base en Matemáticas, Física y Química.",
+    },
+  },
+  skills: {
+    title: "Habilidades técnicas",
+    subtitle: "Tecnologías con las que trabajo",
+    frontend: {
+      title: "Desarrollo Frontend",
+    },
+    backend: {
+      title: "Desarrollo Backend",
+    },
+    tools: {
+      title: "Herramientas y Tecnologías",
+    },
+    languages: {
+      title: "Idiomas",
+      arabic: "Árabe",
+      french: "Francés",
+      english: "Inglés",
+      native: "Nativo",
+      fluent: "Fluido",
+      intermediate: "Intermedio",
+    },
+  },
+  projects: {
+    title: "Proyectos y Experiencia",
+    subtitle: "Algunos de mis trabajos recientes",
+    sav: {
+      title: "Sistema de Gestión SAV",
+      description:
+        "Sistema integral de tickets y diagnóstico con características anidadas estructuradas y soporte multilingüe usando ngx-translate.",
+      feature1: "Sistema de Tickets",
+      feature2: "Herramientas de Diagnóstico",
+      feature3: "Soporte Multilingüe",
+    },
+    survey: {
+      title: "Constructor de Encuestas Dinámicas",
+      description:
+        "Sistema avanzado de encuestas con componentes reutilizables para preguntas anidadas y renderizado dinámico de formularios usando Angular FormArray.",
+      feature1: "Preguntas Anidadas",
+      feature2: "Lógica de Grupo",
+      feature3: "Renderizado Dinámico",
+    },
+    android: {
+      title: "App Android de Tareas",
+      description:
+        "Aplicación de productividad minimalista con seguimiento de tareas y sincronización con Firebase para una experiencia fluida entre dispositivos.",
+      feature1: "Gestión de Tareas",
+      feature2: "Sincronización en la Nube",
+      feature3: "Soporte Offline",
+    },
+    product: {
+      title: "Módulo de Características de Producto",
+      description:
+        "Sistema jerárquico de gestión de productos con arquitectura GrupoCaracteristique → CaracteristiqueDemandable → InstanceCaracteristique.",
+      feature1: "Modelo Jerárquico",
+      feature2: "Interfaz de Diagnóstico",
+      feature3: "Gestión de Productos",
+    },
+    table: {
+      title: "Componente de Tabla Dinámica",
+      description:
+        "Componente de tabla Angular reutilizable con funciones avanzadas como ordenación, filtrado y diseño responsivo.",
+      feature1: "Encabezados Dinámicos",
+      feature2: "Ordenación y Filtrado",
+      feature3: "Diseño Responsivo",
+    },
+    multilang: {
+      title: "Sistema Multilenguaje",
+      description:
+        "Sistema integral de internacionalización que soporta árabe, francés e inglés con cambio de idioma en vivo.",
+      feature1: "Cambio de Idioma en Vivo",
+      feature2: "Soporte RTL",
+      feature3: "Actualizaciones Dinámicas",
+    },
+    marketplace: {
+      title: "Plataforma de Marketplace Completa",
+      description:
+        "Solución de marketplace de extremo a extremo que incluye listados de productos, sistema de carrito, presentaciones de empresas/eventos y gestión de reservas.",
+      feature1: "Flujo de Carrito y Pago",
+      feature2: "Integración de Reservas",
+      feature3: "Páginas de Empresa y Evento",
+    },
+    filtering: {
+      title: "Motor de Filtrado Dinámico",
+      description:
+        "Sistema de filtrado reutilizable y escalable para búsquedas multicriterio en objetos, encuestas y reservas.",
+      feature1: "Filtros Multicriterio",
+      feature2: "Chips de Filtro y Reinicio",
+      feature3: "Búsqueda con Retardo",
+    },
+    relation: {
+      title: "Vinculación de Datos Basada en Relaciones",
+      description:
+        "Lógica de UI estructurada para agrupar y mostrar datos por relaciones contextuales en formularios y listas dinámicas.",
+      feature1: "Secciones Basadas en Grupos",
+      feature2: "Vinculación Bidireccional de Formularios",
+      feature3: "Estructura de Componente Limpia",
+    },
+    devtools: {
+      title: "Herramientas de Desarrollo y Automatización",
+      description:
+        "Creación de herramientas CLI y scripts para agilizar tareas de desarrollo como cierre de procesos y gestión de puertos.",
+      feature1: "Scripts de Limpieza de Puertos",
+      feature2: "Monitoreo de Procesos",
+      feature3: "Configuración Rápida de Entorno",
+    },
+    checklist: {
+      title: "Herramienta de Lista de Verificación y Diagnóstico",
+      description:
+        "Motor de listas de verificación dinámicas para ayudar a los testers a identificar problemas durante la evaluación y mantenimiento de productos.",
+      feature1: "Listas de Verificación Dinámicas",
+      feature2: "Actualizaciones de Estado en Tiempo Real",
+      feature3: "Soporte para Lógica Condicional",
+    },
+    dashboard: {
+      title: "Paneles de Administración",
+      description:
+        "Paneles de administración reutilizables y conmutables para ver, filtrar y gestionar entidades de datos backend en una interfaz fácil de usar.",
+      feature1: "Secciones Colapsables",
+      feature2: "Tablas de Datos Filtrables",
+      feature3: "Componentes de Panel Modulares",
+    },
+  },
+  contact: {
+    title: "Contactar",
+    subtitle: "Trabajemos juntos",
+    connect: "Conectemos",
+    description:
+      "Siempre estoy interesado en nuevas oportunidades y proyectos emocionantes. ¡No dudes en contactarme si quieres trabajar juntos!",
+    email: "Correo electrónico",
+    phone: "Teléfono",
+    location: "Ubicación",
+    locationValue: "Tánger, Marruecos",
+    form: {
+      name: "Tu Nombre",
+      email: "Tu Correo",
+      subject: "Asunto",
+      message: "Tu Mensaje",
+      send: "Enviar Mensaje",
+    },
+  },
+  footer: {
+    copyright: "© 2024 Zakariae Chelle. Todos los derechos reservados.",
+    built: "Construido con HTML, CSS y JavaScript",
+  },
+},
 }
 
 // Language flags and names
@@ -626,12 +835,14 @@ const languageFlags = {
   en: "🇺🇸",
   fr: "🇫🇷",
   ar: "🇲🇦",
+  es: "🇪🇸",
 }
 
 const languageNames = {
   en: "EN",
   fr: "FR",
   ar: "ع",
+  es: "ES",
 }
 
 // DOM Elements
