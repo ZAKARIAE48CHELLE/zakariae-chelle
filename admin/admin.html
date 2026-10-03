@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Zakariae Chelle — Portfolio Back Office</title>
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="stylesheet" href="/admin/admin.css">
+</head>
+<body>
+
+<div class="app">
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="side-head">
+      <div class="brand">
+        <span class="brand-avatar">ZC</span>
+        <div>
+          <h1 class="brand-title">Back Office</h1>
+          <p class="brand-sub">Portfolio CMS & Git Sync</p>
+        </div>
+      </div>
+    </div>
+
+    <nav class="side-nav">
+      <button class="nav-item active" data-tab="overview">
+        <svg class="ico" viewBox="0 0 24 24"><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg>
+        <span>Overview</span>
+      </button>
+      <button class="nav-item" data-tab="featured">
+        <svg class="ico" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <span>Featured Projects</span>
+      </button>
+      <button class="nav-item" data-tab="more-projects">
+        <svg class="ico" viewBox="0 0 24 24"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H8V4h12v12z"/></svg>
+        <span>More Projects</span>
+      </button>
+      <button class="nav-item" data-tab="skills">
+        <svg class="ico" viewBox="0 0 24 24"><path d="M7 2v11h3v9l7-12h-4l4-8z"/></svg>
+        <span>Skills & Marquee</span>
+      </button>
+      <button class="nav-item" data-tab="experience">
+        <svg class="ico" viewBox="0 0 24 24"><path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"/></svg>
+        <span>Experience & Edu</span>
+      </button>
+      <button class="nav-item" data-tab="profile">
+        <svg class="ico" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+        <span>Profile & CV</span>
+      </button>
+      <button class="nav-item" data-tab="i18n">
+        <svg class="ico" viewBox="0 0 24 24"><path d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"/></svg>
+        <span>Multilingual</span>
+      </button>
+      <button class="nav-item" data-tab="git">
+        <svg class="ico" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+        <span>Git & Deploy</span>
+        <span class="badge" id="git-indicator">Clean</span>
+      </button>
+    </nav>
+
+    <div class="side-footer">
+      <a class="btn-side" href="/" target="_blank" rel="noopener">
+        <svg class="ico" viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+        <span>View Live Portfolio</span>
+      </a>
+    </div>
+  </aside>
+
+  <!-- MAIN WRAPPER -->
+  <div class="main-wrap">
+    <!-- TOP HEADER -->
+    <header class="topbar">
+      <div class="topbar-left">
+        <span class="current-crumb" id="crumb-title">Overview</span>
+        <span class="save-status" id="save-status">All changes synced</span>
+      </div>
+
+      <div class="topbar-right">
+        <button class="btn btn-secondary" id="btn-theme-toggle" title="Toggle dark/light theme">
+          <svg class="ico" id="theme-ico" viewBox="0 0 24 24"><path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9c0-.46-.04-.92-.1-1.36-.98 1.37-2.58 2.26-4.4 2.26-3.03 0-5.5-2.47-5.5-5.5 0-1.82.89-3.42 2.26-4.4-.44-.06-.9-.1-1.36-.1z"/></svg>
+        </button>
+
+        <button class="btn btn-primary" id="btn-save-all">
+          <svg class="ico" viewBox="0 0 24 24"><path d="M17 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V7l-4-4zm-5 16c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm3-10H5V5h10v4z"/></svg>
+          <span>Save Changes</span>
+        </button>
+
+        <button class="btn btn-accent" id="btn-header-push">
+          <svg class="ico" viewBox="0 0 24 24"><path d="M5 4v2h14V4H5zm0 10h4v6h6v-6h4l-7-7-7 7z"/></svg>
+          <span>Push to Git</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- CONTENT PANELS -->
+    <main class="content-body">
+
+      <!-- ================= TAB: OVERVIEW ================= -->
+      <section class="tab-panel active" id="tab-overview">
+        <div class="hero-banner">
+          <h2>Welcome back, <span id="dash-author-name">Zakariae</span> 👋</h2>
+          <p>Easily edit your portfolio elements, update projects, manage multi-language translations, and publish changes straight to your Git repository.</p>
+        </div>
+
+        <div class="stats-row">
+          <div class="stat-card">
+            <span class="stat-num" id="stat-featured-count">0</span>
+            <span class="stat-lbl">Featured Projects</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-num" id="stat-more-count">0</span>
+            <span class="stat-lbl">Additional Projects</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-num" id="stat-skills-count">0</span>
+            <span class="stat-lbl">Skill Categories</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-num" id="stat-exp-count">0</span>
+            <span class="stat-lbl">Roles & Internships</span>
+          </div>
+        </div>
+
+        <div class="two-col-grid">
+          <!-- Quick Git Push Card -->
+          <div class="panel-card">
+            <div class="card-head">
+              <h3>🚀 Git & Remote Status</h3>
+              <span class="pill pill-green" id="dash-git-pill">Clean</span>
+            </div>
+            <div class="card-body">
+              <p class="text-muted">Repository branch: <strong id="dash-git-branch">main</strong> (<span id="dash-git-ahead">0 ahead</span>)</p>
+              <div class="git-status-summary" id="dash-git-files-summary">
+                <em>Working tree is synchronized.</em>
+              </div>
+              <div class="form-group" style="margin-top: 1rem;">
+                <label>Commit Message</label>
+                <input type="text" id="quick-commit-msg" class="input" placeholder="e.g. Update portfolio content">
+              </div>
+              <div class="actions-row">
+                <button class="btn btn-secondary" id="dash-btn-commit">Commit Locally</button>
+                <button class="btn btn-accent" id="dash-btn-push">Commit & Push to GitHub</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Actions & Links Card -->
+          <div class="panel-card">
+            <div class="card-head">
+              <h3>⚡ Quick Actions</h3>
+            </div>
+            <div class="card-body">
+              <div class="quick-links-grid">
+                <button class="quick-act" data-nav="featured">
+                  <span class="qa-icon">📁</span>
+                  <div>
+                    <strong>Add / Edit Projects</strong>
+                    <small>Manage AI systems & architecture</small>
+                  </div>
+                </button>
+                <button class="quick-act" data-nav="skills">
+                  <span class="qa-icon">⚡</span>
+                  <div>
+                    <strong>Update Skills</strong>
+                    <small>Tech stack and marquee banner</small>
+                  </div>
+                </button>
+                <button class="quick-act" data-nav="i18n">
+                  <span class="qa-icon">🌐</span>
+                  <div>
+                    <strong>Translate Content</strong>
+                    <small>French, Spanish, and Arabic</small>
+                  </div>
+                </button>
+                <button class="quick-act" data-nav="profile">
+                  <span class="qa-icon">📄</span>
+                  <div>
+                    <strong>Update Resume (CV)</strong>
+                    <small>Upload new PDF resumes</small>
+                  </div>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= TAB: FEATURED PROJECTS ================= -->
+      <section class="tab-panel" id="tab-featured">
+        <div class="panel-header">
+          <div>
+            <h2>Featured Projects</h2>
+            <p class="text-muted">Flagship systems with deep technical breakdowns, 4-pillar architecture (Problem, AI core, System, Value), and interactive diagrams.</p>
+          </div>
+          <button class="btn btn-primary" id="btn-add-featured">
+            <svg class="ico" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+            <span>Add Featured Project</span>
+          </button>
+        </div>
+
+        <div class="projects-list" id="featured-projects-container">
+          <!-- Dynamically populated -->
+        </div>
+      </section>
+
+      <!-- ================= TAB: MORE PROJECTS ================= -->
+      <section class="tab-panel" id="tab-more-projects">
+        <div class="panel-header">
+          <div>
+            <h2>Additional Projects</h2>
+            <p class="text-muted">Compact project cards for computer vision prototypes, labs, simulators, and utilities.</p>
+          </div>
+          <button class="btn btn-primary" id="btn-add-more">
+            <svg class="ico" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+            <span>Add Project</span>
+          </button>
+        </div>
+
+        <div class="more-projects-grid" id="more-projects-container">
+          <!-- Dynamically populated -->
+        </div>
+      </section>
+
+      <!-- ================= TAB: SKILLS & MARQUEE ================= -->
+      <section class="tab-panel" id="tab-skills">
+        <div class="panel-header">
+          <div>
+            <h2>Skills & Technologies</h2>
+            <p class="text-muted">Organize technical capabilities into categories and customize the scrolling marquee ticker.</p>
+          </div>
+          <button class="btn btn-primary" id="btn-add-skill-cat">
+            <svg class="ico" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+            <span>Add Skill Category</span>
+          </button>
+        </div>
+
+        <!-- Marquee Manager -->
+        <div class="panel-card" style="margin-bottom: 2rem;">
+          <div class="card-head">
+            <h3>Scrolling Marquee Ticker</h3>
+            <span class="text-muted">Appears under the hero section</span>
+          </div>
+          <div class="card-body">
+            <div class="chips-editor" id="marquee-chips-container"></div>
+            <div class="chip-add-row">
+              <input type="text" id="marquee-new-tag" class="input" placeholder="Add technology (e.g. PyTorch) and press Enter">
+              <button class="btn btn-secondary" id="btn-marquee-add">Add</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Skill Categories -->
+        <div class="skills-categories-grid" id="skills-container">
+          <!-- Dynamically populated -->
+        </div>
+      </section>
+
+      <!-- ================= TAB: EXPERIENCE & EDUCATION ================= -->
+      <section class="tab-panel" id="tab-experience">
+        <div class="panel-header">
+          <div>
+            <h2>Experience & Education</h2>
+            <p class="text-muted">Manage your professional career timeline and academic credentials.</p>
+          </div>
+          <div class="actions-row">
+            <button class="btn btn-secondary" id="btn-add-edu">Add Education</button>
+            <button class="btn btn-primary" id="btn-add-exp">Add Experience</button>
+          </div>
+        </div>
+
+        <div class="two-col-grid">
+          <!-- Work Experience Timeline -->
+          <div class="panel-card">
+            <div class="card-head">
+              <h3>Professional Timeline</h3>
+            </div>
+            <div class="card-body">
+              <div class="timeline-admin-list" id="experience-container">
+                <!-- Dynamically populated -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Education -->
+          <div class="panel-card">
+            <div class="card-head">
+              <h3>Education & Degrees</h3>
+            </div>
+            <div class="card-body">
+              <div class="edu-admin-list" id="education-container">
+                <!-- Dynamically populated -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= TAB: PROFILE & CV ================= -->
+      <section class="tab-panel" id="tab-profile">
+        <div class="panel-header">
+          <div>
+            <h2>Profile & Contact Details</h2>
+            <p class="text-muted">Personal details, headlines, social profiles, and downloadable CV files.</p>
+          </div>
+        </div>
+
+        <div class="two-col-grid">
+          <!-- Personal Info -->
+          <div class="panel-card">
+            <div class="card-head"><h3>Basic Information</h3></div>
+            <div class="card-body">
+              <div class="form-group">
+                <label>Full Name</label>
+                <input type="text" id="prof-name" class="input">
+              </div>
+              <div class="form-group">
+                <label>Professional Role / Title</label>
+                <input type="text" id="prof-title" class="input">
+              </div>
+              <div class="form-group">
+                <label>Status Badge</label>
+                <input type="text" id="prof-status" class="input">
+              </div>
+              <div class="form-group">
+                <label>Location</label>
+                <input type="text" id="prof-location" class="input">
+              </div>
+              <div class="form-group">
+                <label>Hero Lead Bio</label>
+                <textarea id="prof-lead" class="textarea" rows="3"></textarea>
+              </div>
+              <div class="form-group">
+                <label>About Paragraph 1</label>
+                <textarea id="prof-about1" class="textarea" rows="3"></textarea>
+              </div>
+              <div class="form-group">
+                <label>About Paragraph 2</label>
+                <textarea id="prof-about2" class="textarea" rows="3"></textarea>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact & CV -->
+          <div>
+            <div class="panel-card" style="margin-bottom: 1.5rem;">
+              <div class="card-head"><h3>Socials & Contact</h3></div>
+              <div class="card-body">
+                <div class="form-group">
+                  <label>Primary Email</label>
+                  <input type="email" id="prof-email" class="input">
+                </div>
+                <div class="form-group">
+                  <label>Academic Email</label>
+                  <input type="email" id="prof-academic-email" class="input">
+                </div>
+                <div class="form-group">
+                  <label>GitHub Profile URL</label>
+                  <input type="url" id="prof-github" class="input">
+                </div>
+                <div class="form-group">
+                  <label>LinkedIn Profile URL</label>
+                  <input type="url" id="prof-linkedin" class="input">
+                </div>
+              </div>
+            </div>
+
+            <!-- CV Upload / Manager -->
+            <div class="panel-card">
+              <div class="card-head"><h3>Curriculum Vitae (PDF)</h3></div>
+              <div class="card-body">
+                <div class="cv-item">
+                  <div>
+                    <strong>English CV</strong>
+                    <div class="text-muted" id="cv-path-en">resources/CV/CHELLE_ZAKARIAE_ENG.pdf</div>
+                  </div>
+                  <label class="btn btn-secondary btn-file">
+                    Upload New PDF
+                    <input type="file" accept="application/pdf" id="upload-cv-en" style="display:none">
+                  </label>
+                </div>
+
+                <div class="cv-item" style="margin-top: 1rem;">
+                  <div>
+                    <strong>French CV</strong>
+                    <div class="text-muted" id="cv-path-fr">resources/CV/CHELLE_ZAKARIAE_FR.pdf</div>
+                  </div>
+                  <label class="btn btn-secondary btn-file">
+                    Upload New PDF
+                    <input type="file" accept="application/pdf" id="upload-cv-fr" style="display:none">
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= TAB: MULTILINGUAL (I18N) ================= -->
+      <section class="tab-panel" id="tab-i18n">
+        <div class="panel-header">
+          <div>
+            <h2>Multilingual Content (i18n)</h2>
+            <p class="text-muted">Manage translations for French, Spanish, and Arabic to ensure your portfolio speaks to international recruiters.</p>
+          </div>
+          <div class="search-box">
+            <input type="text" id="i18n-search" class="input" placeholder="Search keys or text (e.g. hero, p1, triage)...">
+          </div>
+        </div>
+
+        <div class="i18n-table-wrap">
+          <table class="i18n-table">
+            <thead>
+              <tr>
+                <th style="width: 18%;">Key</th>
+                <th style="width: 26%;">English (Default)</th>
+                <th style="width: 26%;">Français</th>
+                <th style="width: 26%;">Español</th>
+                <th style="width: 26%;">العربية</th>
+              </tr>
+            </thead>
+            <tbody id="i18n-table-body">
+              <!-- Dynamically populated -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ================= TAB: GIT & DEPLOY ================= -->
+      <section class="tab-panel" id="tab-git">
+        <div class="panel-header">
+          <div>
+            <h2>Git & GitHub Deployment</h2>
+            <p class="text-muted">Track repository changes, view live diffs, commit, and push directly to GitHub Pages.</p>
+          </div>
+          <button class="btn btn-secondary" id="btn-refresh-git">Refresh Status</button>
+        </div>
+
+        <div class="two-col-grid">
+          <!-- Commit & Push Controls -->
+          <div class="panel-card">
+            <div class="card-head">
+              <h3>Publish Changes</h3>
+            </div>
+            <div class="card-body">
+              <div class="git-meta-box">
+                <div>Branch: <strong id="git-meta-branch">main</strong></div>
+                <div>Ahead: <strong id="git-meta-ahead">0</strong> | Behind: <strong id="git-meta-behind">0</strong></div>
+              </div>
+
+              <div class="form-group" style="margin-top: 1rem;">
+                <label>Commit Message</label>
+                <input type="text" id="git-commit-message" class="input" value="Update portfolio content via back office">
+              </div>
+
+              <div class="actions-row">
+                <button class="btn btn-secondary" id="btn-git-commit-only">Commit Only</button>
+                <button class="btn btn-accent" id="btn-git-commit-push">
+                  <svg class="ico" viewBox="0 0 24 24"><path d="M5 4v2h14V4H5zm0 10h4v6h6v-6h4l-7-7-7 7z"/></svg>
+                  <span>Commit & Push to GitHub</span>
+                </button>
+              </div>
+
+              <div class="files-status-box" style="margin-top: 1.5rem;">
+                <h4>Modified / Staged Files (<span id="git-files-count">0</span>)</h4>
+                <ul class="file-list" id="git-file-list"></ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Terminal Output Log -->
+          <div class="panel-card">
+            <div class="card-head">
+              <h3>Terminal Log</h3>
+              <button class="btn-sm btn-ghost" id="btn-clear-terminal">Clear</button>
+            </div>
+            <div class="card-body">
+              <pre class="terminal-log" id="git-terminal">Ready. Click "Commit & Push" to publish changes.</pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Git Diff Viewer -->
+        <div class="panel-card" style="margin-top: 1.5rem;">
+          <div class="card-head">
+            <h3>Working Tree Diff</h3>
+          </div>
+          <div class="card-body">
+            <pre class="diff-viewer" id="git-diff-viewer">Loading diff...</pre>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+</div>
+
+<!-- ================= MODAL: EDIT FEATURED PROJECT ================= -->
+<div class="modal-backdrop" id="modal-featured">
+  <div class="modal">
+    <div class="modal-head">
+      <h3 id="modal-featured-title">Edit Featured Project</h3>
+      <button class="btn-close" id="modal-featured-close">&times;</button>
+    </div>
+    <div class="modal-body">
+      <input type="hidden" id="fp-edit-id">
+      <div class="two-col-grid">
+        <div class="form-group">
+          <label>Project ID (unique slug)</label>
+          <input type="text" id="fp-id" class="input" placeholder="e.g. smartops">
+        </div>
+        <div class="form-group">
+          <label>Number (e.g. 01)</label>
+          <input type="text" id="fp-number" class="input" placeholder="01">
+        </div>
+      </div>
+
+      <div class="two-col-grid">
+        <div class="form-group">
+          <label>Title</label>
+          <input type="text" id="fp-title" class="input" placeholder="Project Name">
+        </div>
+        <div class="form-group">
+          <label>Category</label>
+          <input type="text" id="fp-category" class="input" placeholder="e.g. AI / LLMOps">
+        </div>
+      </div>
+
+      <div class="two-col-grid">
+        <div class="form-group">
+          <label>Status Badge (Optional)</label>
+          <input type="text" id="fp-status" class="input" placeholder="e.g. Internship project">
+        </div>
+        <div class="form-group">
+          <label>Subtitle / Headline</label>
+          <input type="text" id="fp-sub" class="input" placeholder="One-line summary">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Full Description</label>
+        <textarea id="fp-desc" class="textarea" rows="3" placeholder="Detailed project overview..."></textarea>
+      </div>
+
+      <!-- 4 Pillars of System -->
+      <h4 class="subhead">4-Pillar Architecture Breakdown</h4>
+      <div class="form-group">
+        <label>Problem Statement</label>
+        <textarea id="fp-problem" class="textarea" rows="2" placeholder="What operational or business challenge does this solve?"></textarea>
+      </div>
+      <div class="form-group">
+        <label>AI Core</label>
+        <textarea id="fp-core" class="textarea" rows="2" placeholder="Models, fine-tuning, RAG, agents, reasoning..."></textarea>
+      </div>
+      <div class="form-group">
+        <label>System & Architecture</label>
+        <textarea id="fp-system" class="textarea" rows="2" placeholder="APIs, databases, monitoring, deployment..."></textarea>
+      </div>
+      <div class="form-group">
+        <label>Value Delivered</label>
+        <textarea id="fp-value" class="textarea" rows="2" placeholder="Quantifiable benefits and impact..."></textarea>
+      </div>
+
+      <div class="form-group">
+        <label>Tags (press Enter to add)</label>
+        <div class="chips-editor" id="fp-tags-container"></div>
+        <div class="chip-add-row">
+          <input type="text" id="fp-new-tag" class="input" placeholder="Add tag (e.g. PyTorch) and press Enter">
+          <button class="btn btn-secondary" id="btn-fp-tag-add">Add Tag</button>
+        </div>
+      </div>
+
+      <h4 class="subhead">Links (Leave empty to hide button)</h4>
+      <div class="three-col-grid">
+        <div class="form-group">
+          <label>GitHub URL</label>
+          <input type="url" id="fp-lnk-github" class="input" placeholder="https://github.com/...">
+        </div>
+        <div class="form-group">
+          <label>Live Demo URL</label>
+          <input type="url" id="fp-lnk-demo" class="input" placeholder="https://...">
+        </div>
+        <div class="form-group">
+          <label>Report URL</label>
+          <input type="url" id="fp-lnk-report" class="input" placeholder="https://...">
+        </div>
+      </div>
+    </div>
+    <div class="modal-foot">
+      <button class="btn btn-secondary" id="modal-featured-cancel">Cancel</button>
+      <button class="btn btn-primary" id="modal-featured-save">Save Project</button>
+    </div>
+  </div>
+</div>
+
+<!-- ================= MODAL: EDIT ADDITIONAL PROJECT ================= -->
+<div class="modal-backdrop" id="modal-more">
+  <div class="modal">
+    <div class="modal-head">
+      <h3 id="modal-more-title">Edit Project</h3>
+      <button class="btn-close" id="modal-more-close">&times;</button>
+    </div>
+    <div class="modal-body">
+      <input type="hidden" id="mp-edit-id">
+      <div class="two-col-grid">
+        <div class="form-group">
+          <label>Project ID (slug)</label>
+          <input type="text" id="mp-id" class="input" placeholder="e.g. cnn-skin">
+        </div>
+        <div class="form-group">
+          <label>Icon</label>
+          <select id="mp-icon" class="input select">
+            <option value="i-eye">Eye (Computer Vision)</option>
+            <option value="i-cloud">Cloud (Infrastructure)</option>
+            <option value="i-bank">Bank (Finance/Software)</option>
+            <option value="i-cpu">CPU (Machine Learning)</option>
+            <option value="i-spark">Spark (GenAI)</option>
+            <option value="i-db">Database (Data Engineering)</option>
+            <option value="i-server">Server (Backend)</option>
+            <option value="i-layout">Layout (Frontend)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="two-col-grid">
+        <div class="form-group">
+          <label>Title</label>
+          <input type="text" id="mp-title" class="input" placeholder="Project Name">
+        </div>
+        <div class="form-group">
+          <label>Category</label>
+          <input type="text" id="mp-category" class="input" placeholder="e.g. Computer vision">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Description</label>
+        <textarea id="mp-desc" class="textarea" rows="3" placeholder="Brief project summary..."></textarea>
+      </div>
+
+      <div class="form-group">
+        <label>Note (Optional disclaimer / context)</label>
+        <input type="text" id="mp-note" class="input" placeholder="e.g. Prototype for educational purposes">
+      </div>
+
+      <div class="form-group">
+        <label>Tags</label>
+        <div class="chips-editor" id="mp-tags-container"></div>
+        <div class="chip-add-row">
+          <input type="text" id="mp-new-tag" class="input" placeholder="Add tag (e.g. CNN) and press Enter">
+          <button class="btn btn-secondary" id="btn-mp-tag-add">Add Tag</button>
+        </div>
+      </div>
+
+      <h4 class="subhead">Links</h4>
+      <div class="three-col-grid">
+        <div class="form-group">
+          <label>GitHub URL</label>
+          <input type="url" id="mp-lnk-github" class="input" placeholder="https://github.com/...">
+        </div>
+        <div class="form-group">
+          <label>Demo URL</label>
+          <input type="url" id="mp-lnk-demo" class="input" placeholder="https://...">
+        </div>
+        <div class="form-group">
+          <label>Report URL</label>
+          <input type="url" id="mp-lnk-report" class="input" placeholder="https://...">
+        </div>
+      </div>
+    </div>
+    <div class="modal-foot">
+      <button class="btn btn-secondary" id="modal-more-cancel">Cancel</button>
+      <button class="btn btn-primary" id="modal-more-save">Save Project</button>
+    </div>
+  </div>
+</div>
+
+<!-- ================= MODAL: EDIT EXPERIENCE ================= -->
+<div class="modal-backdrop" id="modal-exp">
+  <div class="modal">
+    <div class="modal-head">
+      <h3 id="modal-exp-title">Edit Experience Entry</h3>
+      <button class="btn-close" id="modal-exp-close">&times;</button>
+    </div>
+    <div class="modal-body">
+      <input type="hidden" id="exp-edit-id">
+      <div class="two-col-grid">
+        <div class="form-group">
+          <label>Job Title / Role</label>
+          <input type="text" id="exp-role" class="input" placeholder="e.g. Data Science Intern">
+        </div>
+        <div class="form-group">
+          <label>Company / Organization</label>
+          <input type="text" id="exp-company" class="input" placeholder="e.g. Smart Automation Tech">
+        </div>
+      </div>
+
+      <div class="two-col-grid">
+        <div class="form-group">
+          <label>Date Range</label>
+          <input type="text" id="exp-date" class="input" placeholder="e.g. Jun 2026 — Aug 2026">
+        </div>
+        <div class="form-group">
+          <label>Location</label>
+          <input type="text" id="exp-location" class="input" placeholder="e.g. Tangier, Morocco">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Bullet Points (One per line)</label>
+        <textarea id="exp-bullets" class="textarea" rows="4" placeholder="Enter key accomplishments, each on a new line..."></textarea>
+      </div>
+
+      <div class="form-group">
+        <label>Tags (Optional)</label>
+        <div class="chips-editor" id="exp-tags-container"></div>
+        <div class="chip-add-row">
+          <input type="text" id="exp-new-tag" class="input" placeholder="Add tag (e.g. Angular) and press Enter">
+          <button class="btn btn-secondary" id="btn-exp-tag-add">Add Tag</button>
+        </div>
+      </div>
+    </div>
+    <div class="modal-foot">
+      <button class="btn btn-secondary" id="modal-exp-cancel">Cancel</button>
+      <button class="btn btn-primary" id="modal-exp-save">Save Entry</button>
+    </div>
+  </div>
+</div>
+
+<!-- ================= MODAL: EDIT EDUCATION ================= -->
+<div class="modal-backdrop" id="modal-edu">
+  <div class="modal">
+    <div class="modal-head">
+      <h3 id="modal-edu-title">Edit Education Entry</h3>
+      <button class="btn-close" id="modal-edu-close">&times;</button>
+    </div>
+    <div class="modal-body">
+      <input type="hidden" id="edu-edit-id">
+      <div class="form-group">
+        <label>Degree / Program</label>
+        <input type="text" id="edu-degree" class="input" placeholder="e.g. Engineering Program in Data & AI">
+      </div>
+      <div class="form-group">
+        <label>Institution / School</label>
+        <input type="text" id="edu-school" class="input" placeholder="e.g. EMSI Tangier">
+      </div>
+      <div class="form-group">
+        <label>Date Range / Period</label>
+        <input type="text" id="edu-date" class="input" placeholder="e.g. 2025 — Present">
+      </div>
+    </div>
+    <div class="modal-foot">
+      <button class="btn btn-secondary" id="modal-edu-cancel">Cancel</button>
+      <button class="btn btn-primary" id="modal-edu-save">Save Entry</button>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST NOTIFICATION -->
+<div class="toast" id="toast"></div>
+
+<script src="/admin/admin.js"></script>
+</body>
+</html>

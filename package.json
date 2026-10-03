@@ -1,0 +1,20 @@
+{
+  "name": "zakariae-chelle-portfolio",
+  "version": "1.0.0",
+  "description": "Personal AI & Data Engineering Portfolio of Zakariae Chelle with integrated Back Office CMS",
+  "main": "admin/server.js",
+  "scripts": {
+    "start": "node admin/server.js",
+    "admin": "node admin/server.js",
+    "build": "node admin/builder.js"
+  },
+  "keywords": [
+    "portfolio",
+    "ai",
+    "data-engineering",
+    "cms",
+    "backoffice"
+  ],
+  "author": "Zakariae Chelle",
+  "license": "MIT"
+}

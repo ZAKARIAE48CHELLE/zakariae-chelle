@@ -101,6 +101,7 @@
         </span>
       </div>
     </div>
+    <!-- DYNAMIC:PIPELINE:START -->
     <div class="pipeline rv">
       <p class="pipe-label mono" data-i18n="hero.pipe">A typical system I build</p>
       <ol class="pipe">
@@ -111,14 +112,17 @@
         <li><b data-i18n="pipe.5">Monitor</b><small>Prometheus</small></li>
       </ol>
     </div>
+    <!-- DYNAMIC:PIPELINE:END -->
   </div>
 </section>
 
+<!-- DYNAMIC:MARQUEE:START -->
 <div class="marquee" aria-hidden="true">
   <div class="track"><ul class="set">
     <li>Python</li><li>PyTorch</li><li>TensorFlow</li><li>Keras</li><li>LangGraph</li><li>Ollama</li><li>QLoRA</li><li>RAG</li><li>FastAPI</li><li>Spring Boot</li><li>Angular</li><li>TypeScript</li><li>PostgreSQL</li><li>Spark</li><li>Kafka</li><li>Hadoop</li><li>Docker</li><li>Prometheus</li><li>Streamlit</li><li>Java</li><li>C++</li><li>Proxmox VE</li>
   </ul></div>
 </div>
+    <!-- DYNAMIC:MARQUEE:END -->
 
 <!-- ABOUT -->
 <section class="sec wrap" id="about">
@@ -131,6 +135,7 @@
       <p class="big" data-i18n="about.p1">I'm a Data & AI engineering student at EMSI Tangier. I work across every layer of an intelligent product: the model, the data, the API, the monitoring, and the interface people actually touch.</p>
       <p data-i18n="about.p2">Lately my work centres on local LLMs, RAG, multi-agent architectures, digital twins and privacy-preserving applications — including a digital-twin platform I designed and built during my internship at Smart Automation Technologies.</p>
     </div>
+    <!-- DYNAMIC:FACTS:START -->
     <dl class="facts rv">
       <div><dt data-i18n="fact.based">Based in</dt><dd data-i18n="hero.loc">Tangier, Morocco</dd></div>
       <div><dt data-i18n="fact.study">Studying</dt><dd data-i18n="fact.study.v">Engineering program, EMSI Tangier</dd></div>
@@ -138,12 +143,15 @@
       <div><dt data-i18n="fact.lang">Languages</dt><dd data-i18n="fact.lang.v">English, French</dd></div>
       <div><dt data-i18n="fact.open">Open to</dt><dd data-i18n="fact.open.v">Internships, AI / data projects, full-stack roles</dd></div>
     </dl>
+    <!-- DYNAMIC:FACTS:END -->
   </div>
+  <!-- DYNAMIC:STATS:START -->
   <div class="stats rv">
     <div><strong data-count="6">6</strong><span data-i18n="stat.projects">Projects</span></div>
     <div><strong data-count="3">3</strong><span data-i18n="stat.roles">Professional roles</span></div>
     <div><strong data-count="4" data-suffix="+">4+</strong><span data-i18n="stat.years">Years in computer science</span></div>
   </div>
+    <!-- DYNAMIC:STATS:END -->
 </section>
 
 <!-- WORK -->
@@ -154,7 +162,8 @@
     <p class="sec-sub" data-i18n="work.sub">Three systems, each with an AI core and the engineering built around it.</p>
   </header>
 
-  <!-- 01 LocalOps -->
+  <!-- DYNAMIC:FEATURED_PROJECTS:START -->
+  <!-- 01 LocalOps AI -->
   <article class="project spot rv" id="localops">
     <div class="p-copy">
       <div class="p-meta"><span class="num mono">01</span><span class="chip" data-i18n="p1.cat">AI / LLMOps</span></div>
@@ -176,7 +185,7 @@
     </figure>
   </article>
 
-  <!-- 02 Digital twin -->
+  <!-- 02 Digital Twin Client Classification -->
   <article class="project spot rv flip" id="digitaltwin">
     <div class="p-copy">
       <div class="p-meta"><span class="num mono">02</span><span class="chip" data-i18n="p2.cat">Data science / Business AI</span><span class="chip chip-solid" data-i18n="p2.status">Internship project</span></div>
@@ -219,8 +228,10 @@
       <figcaption><ul class="legend"><li class="k-ai" data-i18n="leg.ai">AI core</li><li class="k-data" data-i18n="leg.data">Data</li><li class="k-svc" data-i18n="leg.svc">Service</li><li class="k-watch" data-i18n="leg.watch">Monitoring</li></ul><span data-i18n="diag.note">Simplified architecture, for illustration.</span></figcaption>
     </figure>
   </article>
+    <!-- DYNAMIC:FEATURED_PROJECTS:END -->
 
   <h3 class="sub-head rv"><span data-i18n="more.title">More <em>work</em></span></h3>
+  <!-- DYNAMIC:MORE_PROJECTS:START -->
   <div class="more">
     <article class="card spot rv">
       <div class="card-top"><span class="ico"><svg class="i"><use href="#i-eye"/></svg></span><span class="chip" data-i18n="p4.cat">Computer vision</span></div>
@@ -234,6 +245,7 @@
       <div class="card-top"><span class="ico"><svg class="i"><use href="#i-cloud"/></svg></span><span class="chip" data-i18n="p5.cat">Infrastructure</span></div>
       <h4 data-i18n="p5.title">Virtualization & cloud lab</h4>
       <p data-i18n="p5.desc">Design and deployment of an isolated internal network in a virtualised environment, built on the Proxmox VE type-1 hypervisor.</p>
+      
       <ul class="tags"><li>Proxmox VE</li><li>Virtualization</li><li>Networking</li></ul>
       <div class="p-links" data-links="proxmox"></div>
     </article>
@@ -241,10 +253,12 @@
       <div class="card-top"><span class="ico"><svg class="i"><use href="#i-bank"/></svg></span><span class="chip" data-i18n="p6.cat">Software engineering</span></div>
       <h4 data-i18n="p6.title">Bank transaction simulator</h4>
       <p data-i18n="p6.desc">A Java desktop application simulating bank operations: account management, deposits, withdrawals and transaction history, with a focus on object-oriented design and concurrency handling.</p>
+      
       <ul class="tags"><li>Java</li><li>OOP</li><li>Concurrency</li><li>Desktop</li></ul>
       <div class="p-links" data-links="bank"></div>
     </article>
   </div>
+    <!-- DYNAMIC:MORE_PROJECTS:END -->
 </section>
 
 <!-- SKILLS -->
@@ -254,6 +268,7 @@
     <h2 data-i18n="skills.title">Tools for the <em>whole system</em></h2>
     <p class="sec-sub" data-i18n="skills.sub">From model experiments to dependable interfaces and deployment.</p>
   </header>
+  <!-- DYNAMIC:SKILLS:START -->
   <div class="skills">
     <article class="card spot rv"><span class="ico"><svg class="i"><use href="#i-cpu"/></svg></span><h4 data-i18n="sk.ai">AI & machine learning</h4><ul class="tags"><li>Machine Learning</li><li>Deep Learning</li><li>NLP</li><li>Computer Vision</li><li>PyTorch</li><li>TensorFlow</li><li>Keras</li><li>NumPy</li><li>Pandas</li><li>Matplotlib</li></ul></article>
     <article class="card spot rv"><span class="ico"><svg class="i"><use href="#i-spark"/></svg></span><h4 data-i18n="sk.llm">Generative AI & LLMs</h4><ul class="tags"><li>LLMs</li><li>Prompt Engineering</li><li>RAG</li><li>QLoRA</li><li>Ollama</li><li>AI Agents</li><li>Multi-Agent Systems</li><li>LangGraph</li></ul></article>
@@ -262,6 +277,7 @@
     <article class="card spot rv"><span class="ico"><svg class="i"><use href="#i-layout"/></svg></span><h4 data-i18n="sk.front">Frontend & dashboards</h4><ul class="tags"><li>Angular</li><li>Streamlit</li><li>HTML / CSS</li><li>JavaScript</li><li>TypeScript</li></ul></article>
     <article class="card spot rv"><span class="ico"><svg class="i"><use href="#i-pen"/></svg></span><h4 data-i18n="sk.design">Design & creative</h4><ul class="tags"><li>Photoshop</li><li>Premiere Pro</li><li>Lightroom</li><li>Infographics</li></ul></article>
   </div>
+    <!-- DYNAMIC:SKILLS:END -->
 </section>
 
 <!-- EXPERIENCE + EDUCATION -->
@@ -270,6 +286,7 @@
     <p class="eyebrow mono"><span>04</span><span data-i18n="nav.experience">Experience</span></p>
     <h2 data-i18n="exp.title">Building in <em>real teams</em></h2>
   </header>
+  <!-- DYNAMIC:TIMELINE:START -->
   <ol class="timeline">
     <li class="rv">
       <time class="mono" data-i18n="e1.date">Jun 2026 — Aug 2026</time>
@@ -281,6 +298,7 @@
           <li data-i18n="e1.b2">Implemented AHP-weighted RFM-ES scoring, CLV, churn and conversion models, segmentation, personas and A/B simulation.</li>
           <li data-i18n="e1.b3">Delivered a PostgreSQL + Streamlit architecture with LangGraph multi-agent supervision and a governed local LLM with human validation.</li>
         </ul>
+        
       </div>
     </li>
     <li class="rv">
@@ -293,6 +311,7 @@
           <li data-i18n="e2.b2">Designed user interfaces to improve the user experience.</li>
           <li data-i18n="e2.b3">Improved server performance and optimised backend processes.</li>
         </ul>
+        
       </div>
     </li>
     <li class="rv">
@@ -308,15 +327,18 @@
       </div>
     </li>
   </ol>
+    <!-- DYNAMIC:TIMELINE:END -->
 
   <header class="sec-head sec-head-2 rv">
     <p class="eyebrow mono"><span>05</span><span data-i18n="nav.education">Education</span></p>
     <h2 data-i18n="edu.title">Always <em>learning</em></h2>
   </header>
+  <!-- DYNAMIC:EDUCATION:START -->
   <div class="edu">
     <article class="card spot rv"><time class="mono" data-i18n="edu1.d">2025 — Present</time><h4 data-i18n="edu1.t">Engineering program — Data & Artificial Intelligence</h4><p data-i18n="edu1.inst">EMSI Tangier</p></article>
     <article class="card spot rv"><time class="mono" data-i18n="edu2.d">2022 — 2023</time><h4 data-i18n="edu2.t">Bachelor of Science and Technology — Computer Engineering</h4><p data-i18n="edu2.inst">Faculty of Sciences and Technology, Tangier</p></article>
   </div>
+    <!-- DYNAMIC:EDUCATION:END -->
 </section>
 
 <!-- CONTACT -->
