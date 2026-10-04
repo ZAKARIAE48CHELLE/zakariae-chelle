@@ -6,7 +6,7 @@
   "scripts": {
     "admin": "node admin/server.js",
     "build": "node admin/lib/builder.js",
-    "serve": "python3 -m http.server 8000 --directory front",
+    "serve": "node scripts/serve.js",
     "test": "node admin/test/run.js"
   },
   "engines": {
