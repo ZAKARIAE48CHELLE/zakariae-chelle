@@ -1,5 +1,18 @@
+# Dependencies and backups
 node_modules/
 data/.backups/
 *.tmp
 .DS_Store
 Thumbs.db
+
+# Local Back Office & Data (kept local, NOT pushed to GitHub)
+admin/
+data/
+scripts/
+docs/
+package.json
+package-lock.json
+start-admin.bat
+start-admin.ps1
+start-admin.sh
+.vscode/
