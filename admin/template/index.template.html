@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+{{HEAD_META}}
+<meta name="theme-color" content="#0a0a0b">
+<meta name="color-scheme" content="dark light">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="assets/fonts/geist-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<script>
+(function(){var d=document.documentElement;d.classList.add('js');try{var t=localStorage.getItem('zc-theme');if(t==='light'||t==='dark')d.dataset.theme=t;}catch(e){}})();
+</script>
+<link rel="stylesheet" href="styles.css">
+<script type="application/ld+json">
+{{JSONLD}}
+</script>
+</head>
+<body>
+
+<!-- icon sprite -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 5v14M6 13l6 6 6-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 4v11M7 11l5 5 5-5M5 20h14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><path d="M3.5 6h17v12h-17zM4 7l8 6 8-6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6 7 7M17 17l1.4 1.4M5.6 18.4 7 17M17 7l1.4-1.4"/></g></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></symbol>
+  <symbol id="i-copy" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h8"/></g></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 8h16M4 16h16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  <symbol id="i-github" viewBox="0 0 24 24"><path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></symbol>
+  <symbol id="i-linkedin" viewBox="0 0 24 24"><path fill="currentColor" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.125 2.062 2.062 0 0 1 0 4.125zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0z"/></symbol>
+  <symbol id="i-cpu" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="2"/><rect x="10" y="10" width="4" height="4"/><path d="M9 3v3M15 3v3M9 18v3M15 18v3M3 9h3M3 15h3M18 9h3M18 15h3"/></g></symbol>
+  <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3.5 14 9l5.5 2L14 13l-2 5.5L10 13l-5.5-2L10 9z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M19 3v3M17.5 4.5h3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+  <symbol id="i-db" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v6c0 1.7 3.1 3 7 3s7-1.3 7-3V6M5 12v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6"/></g></symbol>
+  <symbol id="i-server" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><rect x="3.5" y="4" width="17" height="6.5" rx="2"/><rect x="3.5" y="13.5" width="17" height="6.5" rx="2"/><path d="M7 7.2h.01M7 16.8h.01"/></g></symbol>
+  <symbol id="i-layout" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><rect x="3.5" y="4" width="17" height="16" rx="2"/><path d="M3.5 9h17M9 9v11"/></g></symbol>
+  <symbol id="i-pen" viewBox="0 0 24 24"><path d="M4 20l1-4L16.5 4.5a2.1 2.1 0 0 1 3 3L8 19zM14.5 6.5l3 3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-eye" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></g></symbol>
+  <symbol id="i-cloud" viewBox="0 0 24 24"><path d="M7 18.5a4.5 4.5 0 0 1-.6-8.96A5.5 5.5 0 0 1 17 8.5a5 5 0 0 1 .5 10z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+  <symbol id="i-bank" viewBox="0 0 24 24"><path d="M3 9.5 12 4l9 5.5M5.5 11v7M10 11v7M14 11v7M18.5 11v7M3 20.5h18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</svg>
+
+<a class="skip" href="#main" data-i18n="skip">Skip to content</a>
+<div id="progress" aria-hidden="true"></div>
+
+<header class="nav-wrap">
+  <nav class="nav" aria-label="Primary">
+    <a class="brand" href="#top" aria-label="{{NAME}} — home"><span class="mark">{{INITIALS}}</span><span class="brand-name">{{NAME}}</span></a>
+    <ul class="links" id="menu">
+      <li><a href="#about" data-i18n="nav.about">About</a></li>
+      <li><a href="#work" data-i18n="nav.work">Work</a></li>
+      <li><a href="#skills" data-i18n="nav.skills">Skills</a></li>
+      <li><a href="#experience" data-i18n="nav.experience">Experience</a></li>
+      <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
+      <li class="menu-lang"><div class="lang" role="group" aria-label="Language"><button type="button" data-lang="en">EN</button><button type="button" data-lang="fr">FR</button><button type="button" data-lang="es">ES</button><button type="button" data-lang="ar">AR</button></div></li>
+    </ul>
+    <div class="tools">
+      <div class="lang desk-only" role="group" aria-label="Language"><button type="button" data-lang="en">EN</button><button type="button" data-lang="fr">FR</button><button type="button" data-lang="es">ES</button><button type="button" data-lang="ar">AR</button></div>
+      <button type="button" class="icon-btn" id="theme" aria-label="Toggle light / dark theme"><svg class="i"><use href="#i-sun"/></svg></button>
+      <a class="btn btn-accent btn-sm" data-cv href="{{CV_EN}}" download><span data-i18n="nav.cv">CV</span><svg class="i"><use href="#i-download"/></svg></a>
+      <button type="button" class="icon-btn menu-btn" id="menu-btn" aria-expanded="false" aria-controls="menu" aria-label="Menu"><svg class="i"><use href="#i-menu"/></svg></button>
+    </div>
+  </nav>
+</header>
+
+<main id="main">
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <canvas id="net" aria-hidden="true"></canvas>
+  <div class="hero-grid" aria-hidden="true"></div>
+  <div class="wrap hero-inner">
+    <div class="hero-top rv">
+      <span class="status"><i class="pulse"></i><span data-i18n="hero.status">{{STATUS}}</span></span>
+      <span class="clock mono"><span data-i18n="hero.loc">{{LOCATION}}</span> · <time id="clock">--:--</time></span>
+    </div>
+    <h1 class="name rv"><span class="n1">{{FIRST}}</span> <span class="n2 serif">{{LAST}}</span></h1>
+    <p class="role mono rv" data-i18n="hero.role">{{TITLE}}</p>
+    <div class="hero-row rv">
+      <p class="lead" data-i18n="hero.lead">{{LEAD}}</p>
+      <div class="hero-cta">
+        <a class="btn btn-accent" href="#work"><span data-i18n="hero.cta1">View projects</span><svg class="i"><use href="#i-down"/></svg></a>
+        <a class="btn btn-ghost" data-cv href="{{CV_EN}}" download><span data-i18n="hero.cta2">Download CV</span><svg class="i"><use href="#i-download"/></svg></a>
+        <span class="socials">
+          <a class="icon-btn" data-social="github" href="{{GITHUB}}" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><svg class="i"><use href="#i-github"/></svg></a>
+          <a class="icon-btn" data-social="linkedin" href="{{LINKEDIN}}" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg class="i"><use href="#i-linkedin"/></svg></a>
+          <a class="icon-btn" data-social="mail" href="mailto:{{EMAIL}}" aria-label="Email"><svg class="i"><use href="#i-mail"/></svg></a>
+        </span>
+      </div>
+    </div>
+{{PIPELINE}}
+  </div>
+</section>
+
+{{MARQUEE}}
+
+<!-- ABOUT -->
+<section class="sec wrap" id="about">
+  <header class="sec-head rv">
+    <p class="eyebrow mono"><span>01</span><span data-i18n="nav.about">About</span></p>
+    <h2 data-i18n="about.title">{{HEADLINE}}</h2>
+  </header>
+  <div class="about-grid">
+    <div class="about-copy rv">
+      <p class="big" data-i18n="about.p1">{{ABOUT_P1}}</p>
+      <p data-i18n="about.p2">{{ABOUT_P2}}</p>
+    </div>
+{{FACTS}}
+  </div>
+{{STATS}}
+</section>
+
+<!-- WORK -->
+<section class="sec wrap" id="work">
+  <header class="sec-head rv">
+    <p class="eyebrow mono"><span>02</span><span data-i18n="nav.work">Work</span></p>
+    <h2 data-i18n="work.title">Featured <em>projects</em></h2>
+    <p class="sec-sub" data-i18n="work.sub">Three systems, each with an AI core and the engineering built around it.</p>
+  </header>
+
+{{FEATURED}}
+
+{{MORE}}
+</section>
+
+<!-- SKILLS -->
+<section class="sec wrap" id="skills">
+  <header class="sec-head rv">
+    <p class="eyebrow mono"><span>03</span><span data-i18n="nav.skills">Skills</span></p>
+    <h2 data-i18n="skills.title">Tools for the <em>whole system</em></h2>
+    <p class="sec-sub" data-i18n="skills.sub">From model experiments to dependable interfaces and deployment.</p>
+  </header>
+{{SKILLS}}
+</section>
+
+<!-- EXPERIENCE + EDUCATION -->
+<section class="sec wrap" id="experience">
+  <header class="sec-head rv">
+    <p class="eyebrow mono"><span>04</span><span data-i18n="nav.experience">Experience</span></p>
+    <h2 data-i18n="exp.title">Building in <em>real teams</em></h2>
+  </header>
+{{TIMELINE}}
+
+  <header class="sec-head sec-head-2 rv">
+    <p class="eyebrow mono"><span>05</span><span data-i18n="nav.education">Education</span></p>
+    <h2 data-i18n="edu.title">Always <em>learning</em></h2>
+  </header>
+{{EDUCATION}}
+</section>
+
+<!-- CONTACT -->
+<section class="sec wrap" id="contact">
+  <div class="contact spot rv">
+    <p class="eyebrow mono"><span>06</span><span data-i18n="nav.contact">Contact</span></p>
+    <h2 data-i18n="contact.title">Let's build something <em>intelligent</em>.</h2>
+    <p class="c-sub" data-i18n="contact.sub">Open to internships, AI / data projects, full-stack opportunities and thoughtful collaboration.</p>
+    <a class="mega" id="email-link" href="mailto:{{EMAIL}}">{{EMAIL}}</a>
+    <div class="c-actions">
+      <a class="btn btn-accent" id="email-cta" href="mailto:{{EMAIL}}"><span data-i18n="contact.write">Write to me</span><svg class="i"><use href="#i-arrow"/></svg></a>
+      <button type="button" class="btn btn-ghost" id="copy-email"><svg class="i"><use href="#i-copy"/></svg><span data-i18n="contact.copy">Copy email</span></button>
+      <a class="btn btn-ghost" data-social="linkedin" href="{{LINKEDIN}}" target="_blank" rel="noopener noreferrer"><svg class="i"><use href="#i-linkedin"/></svg>LinkedIn</a>
+      <a class="btn btn-ghost" data-social="github" href="{{GITHUB}}" target="_blank" rel="noopener noreferrer"><svg class="i"><use href="#i-github"/></svg>GitHub</a>
+    </div>
+    <p class="c-alt mono"><a href="mailto:{{ACADEMIC_EMAIL}}">{{ACADEMIC_EMAIL}}</a> · <span data-i18n="hero.loc">{{LOCATION}}</span></p>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer wrap">
+  <p class="mono">© <span id="year">{{YEAR}}</span> {{NAME}}</p>
+  <a class="mono" href="#top"><span data-i18n="footer.top">Back to top</span> ↑</a>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="config.js"></script>
+<script src="diagrams.js"></script>
+<script src="diagram.js"></script>
+<script src="i18n.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

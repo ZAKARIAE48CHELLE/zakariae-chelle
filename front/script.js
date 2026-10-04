@@ -29,14 +29,8 @@
 
   /* ---------- i18n ---------- */
   var I = { en: {} };
-  $$('[data-i18n]').forEach(function (el) { I.en[el.dataset.i18n] = el.innerHTML; });
+  $$('[data-i18n]').forEach(function (el) { I.en[el.dataset.i18n] = el.tagName === 'TITLE' ? el.textContent : el.innerHTML; });
   Object.keys(I18N).forEach(function (l) { I[l] = I18N[l]; });
-  var titles = {
-    en: 'Zakariae Chelle — Data & AI Engineering Student',
-    fr: 'Zakariae Chelle — Étudiant ingénieur Data & IA',
-    es: 'Zakariae Chelle — Estudiante de Ingeniería de Datos e IA',
-    ar: 'زكرياء الشلي — طالب هندسة البيانات والذكاء الاصطناعي'
-  };
   var lang = 'en';
   function setLang(l) {
     if (!I[l]) l = 'en';
@@ -44,11 +38,11 @@
     var dict = I[l];
     $$('[data-i18n]').forEach(function (el) {
       var k = el.dataset.i18n;
-      el.innerHTML = dict[k] != null ? dict[k] : I.en[k];
+      var v = dict[k] != null ? dict[k] : I.en[k];
+      if (el.tagName === 'TITLE') document.title = v; else el.innerHTML = v;
     });
     var d = document.documentElement;
     d.lang = l; d.dir = l === 'ar' ? 'rtl' : 'ltr';
-    document.title = titles[l];
     $$('[data-lang]').forEach(function (b) { b.setAttribute('aria-pressed', b.dataset.lang === l ? 'true' : 'false'); });
     var cv = (SITE.cv && (SITE.cv[l] || SITE.cv.en)) || '#';
     $$('[data-cv]').forEach(function (a) { a.href = cv; });
@@ -171,106 +165,20 @@
   }
   addEventListener('resize', measurePipe);
 
-  /* =====================================================================
-     Architecture diagrams
-     node: [id, x, y, label, sub, kind, (w)]   kinds: ai | data | svc | watch
-     edge: [from, to, type]                      types: f flow | c control | b both ways
-     ===================================================================== */
-  var D = {
-    localops: {
-      desktop: { w: 560, h: 312, nw: 112, nh: 46,
-        nodes: [['logs', 8, 142, 'Incident logs', 'alerts · traces', 'data'], ['slm', 152, 52, 'SLM · QLoRA', 'severity + RCA', 'ai'], ['rag', 152, 232, 'RAG', 'runbooks index', 'ai'], ['api', 296, 142, 'FastAPI', 'serving layer', 'svc'], ['dash', 440, 52, 'Dashboard', 'triage view', 'svc'], ['prom', 440, 232, 'Prometheus', 'metrics · alerts', 'watch']],
-        edges: [['logs', 'slm', 'f'], ['logs', 'rag', 'f'], ['rag', 'slm', 'f'], ['slm', 'api', 'f'], ['api', 'dash', 'f'], ['api', 'prom', 'c']] },
-      mobile: { w: 340, h: 326, nw: 146, nh: 46,
-        nodes: [['logs', 8, 8, 'Incident logs', 'alerts · traces', 'data'], ['rag', 8, 96, 'RAG', 'runbooks index', 'ai'], ['slm', 186, 96, 'SLM · QLoRA', 'severity + RCA', 'ai'], ['api', 186, 184, 'FastAPI', 'serving layer', 'svc'], ['dash', 8, 272, 'Dashboard', 'triage view', 'svc'], ['prom', 186, 272, 'Prometheus', 'metrics · alerts', 'watch']],
-        edges: [['logs', 'slm', 'f'], ['logs', 'rag', 'f'], ['rag', 'slm', 'f'], ['slm', 'api', 'f'], ['api', 'dash', 'f'], ['api', 'prom', 'c']] }
-    },
-    digitaltwin: {
-      desktop: { w: 560, h: 312, nw: 112, nh: 46,
-        nodes: [['pg', 8, 142, 'PostgreSQL', 'client data', 'data'], ['twin', 152, 142, 'Digital twin', 'client · prospect', 'ai'], ['rfm', 296, 30, 'RFM-ES · AHP', 'scoring', 'ai'], ['clv', 296, 142, 'CLV · Churn', 'conversion', 'ai'], ['seg', 296, 254, 'Segments', 'dynamic personas', 'ai'], ['ab', 440, 254, 'A/B tests', 'simulation', 'ai'], ['out', 440, 142, 'Streamlit', 'dashboards', 'svc'], ['sup', 152, 254, 'LangGraph', 'agents + LLM', 'watch']],
-        edges: [['pg', 'twin', 'f'], ['twin', 'rfm', 'f'], ['twin', 'clv', 'f'], ['twin', 'seg', 'f'], ['rfm', 'out', 'f'], ['clv', 'out', 'f'], ['seg', 'ab', 'f'], ['ab', 'out', 'f'], ['sup', 'twin', 'c'], ['sup', 'seg', 'c']] },
-      mobile: { w: 340, h: 326, nw: 146, nh: 46,
-        nodes: [['pg', 8, 8, 'PostgreSQL', 'client data', 'data'], ['twin', 186, 8, 'Digital twin', 'client · prospect', 'ai'], ['rfm', 8, 96, 'RFM-ES · AHP', 'scoring', 'ai'], ['clv', 186, 96, 'CLV · Churn', 'conversion', 'ai'], ['seg', 8, 184, 'Segments', 'dynamic personas', 'ai'], ['sup', 186, 184, 'LangGraph', 'agents + LLM', 'watch'], ['ab', 8, 272, 'A/B tests', 'simulation', 'ai'], ['out', 186, 272, 'Streamlit', 'dashboards', 'svc']],
-        edges: [['pg', 'twin', 'f'], ['twin', 'rfm', 'f'], ['twin', 'clv', 'f'], ['rfm', 'seg', 'f'], ['seg', 'ab', 'f'], ['ab', 'out', 'f'], ['sup', 'clv', 'c'], ['sup', 'seg', 'c'], ['sup', 'out', 'c']] }
-    },
-    auramarket: {
-      desktop: { w: 560, h: 312, nw: 112, nh: 46,
-        nodes: [['search', 8, 40, 'Smart search', 'discovery', 'svc'], ['assist', 8, 244, 'Assistant', 'guidance', 'svc'], ['hub', 224, 142, 'Marketplace', 'products · users', 'data'], ['offer', 440, 8, 'Offer agent', 'dynamic offers', 'ai'], ['buyer', 440, 94, 'Buyer agent', 'negotiation', 'ai'], ['seller', 440, 188, 'Seller agent', 'counter-offers', 'ai'], ['sec', 440, 276, 'Security', 'detection', 'watch']],
-        edges: [['search', 'hub', 'f'], ['assist', 'hub', 'f'], ['hub', 'offer', 'f'], ['hub', 'buyer', 'f'], ['hub', 'seller', 'f'], ['hub', 'sec', 'c'], ['buyer', 'seller', 'b']] },
-      mobile: { w: 340, h: 326, nw: 146, nh: 46,
-        nodes: [['search', 8, 8, 'Smart search', 'discovery', 'svc'], ['assist', 186, 8, 'Assistant', 'guidance', 'svc'], ['hub', 97, 96, 'Marketplace', 'products · users', 'data'], ['buyer', 8, 184, 'Buyer agent', 'negotiation', 'ai'], ['offer', 186, 184, 'Offer agent', 'dynamic offers', 'ai'], ['seller', 8, 272, 'Seller agent', 'counter-offers', 'ai'], ['sec', 186, 272, 'Security', 'detection', 'watch']],
-        edges: [['search', 'hub', 'f'], ['assist', 'hub', 'f'], ['hub', 'buyer', 'f'], ['hub', 'offer', 'f'], ['buyer', 'seller', 'b'], ['offer', 'sec', 'c']] }
-    }
-  };
-
-  var NS = 'http://www.w3.org/2000/svg';
-  function pathFor(a, b) {
-    var ox = a.x < b.x + b.w && b.x < a.x + a.w, oy = a.y < b.y + b.h && b.y < a.y + a.h;
-    var acx = a.x + a.w / 2, acy = a.y + a.h / 2, bcx = b.x + b.w / 2, bcy = b.y + b.h / 2;
-    var dx = bcx - acx, dy = bcy - acy, vertical;
-    if (ox && !oy) vertical = true; else if (oy && !ox) vertical = false; else vertical = Math.abs(dy) > Math.abs(dx);
-    var g = 4, x1, y1, x2, y2;
-    if (vertical) {
-      x1 = acx; x2 = bcx;
-      if (dy > 0) { y1 = a.y + a.h + g; y2 = b.y - g; } else { y1 = a.y - g; y2 = b.y + b.h + g; }
-      var my = (y1 + y2) / 2;
-      return 'M' + x1 + ' ' + y1 + 'C' + x1 + ' ' + my + ' ' + x2 + ' ' + my + ' ' + x2 + ' ' + y2;
-    }
-    y1 = acy; y2 = bcy;
-    if (dx > 0) { x1 = a.x + a.w + g; x2 = b.x - g; } else { x1 = a.x - g; x2 = b.x + b.w + g; }
-    var mx = (x1 + x2) / 2;
-    return 'M' + x1 + ' ' + y1 + 'C' + mx + ' ' + y1 + ' ' + mx + ' ' + y2 + ' ' + x2 + ' ' + y2;
-  }
-  function rev(d) { // reverse a 'M a C b c d' path
-    var n = d.match(/-?\d+\.?\d*/g).map(Number);
-    return 'M' + n[6] + ' ' + n[7] + 'C' + n[4] + ' ' + n[5] + ' ' + n[2] + ' ' + n[3] + ' ' + n[0] + ' ' + n[1];
-  }
-  function el(name, attrs, parent) {
-    var e = document.createElementNS(NS, name);
-    for (var k in attrs) e.setAttribute(k, attrs[k]);
-    if (parent) parent.appendChild(e);
-    return e;
-  }
-  function renderDiagram(host) {
-    var key = host.dataset.diagram, spec = D[key];
-    if (!spec) return;
-    var m = window.matchMedia('(max-width: 640px)').matches, L = m ? spec.mobile : spec.desktop;
-    host.innerHTML = '';
-    var svg = el('svg', { viewBox: '0 0 ' + L.w + ' ' + L.h, role: 'presentation', focusable: 'false' }, host);
-    var defs = el('defs', {}, svg), id = 'ah-' + key;
-    var mk = el('marker', { id: id, viewBox: '0 0 10 10', refX: '8', refY: '5', markerWidth: '6', markerHeight: '6', orient: 'auto-start-reverse' }, defs);
-    el('path', { d: 'M0 1.5 10 5 0 8.5z', 'class': 'arrowhead' }, mk);
-    var rect = {};
-    L.nodes.forEach(function (n) { rect[n[0]] = { x: n[1], y: n[2], w: L.nw, h: L.nh }; });
-    var eg = el('g', {}, svg), ng = el('g', {}, svg), pg = el('g', {}, svg), i = 0;
-    L.edges.forEach(function (e) {
-      var d = pathFor(rect[e[0]], rect[e[1]]);
-      var p = el('path', { d: d, 'class': 'edge' + (e[2] === 'c' ? ' c' : ''), 'marker-end': 'url(#' + id + ')' }, eg);
-      if (e[2] === 'b') p.setAttribute('marker-start', 'url(#' + id + ')');
-      if (reduce || e[2] === 'c') return;
-      var dirs = e[2] === 'b' ? [d, rev(d)] : [d];
-      dirs.forEach(function (dd, j) {
-        var c = el('circle', { r: '2.6', 'class': 'pkt' }, pg);
-        var an = el('animateMotion', { dur: (2.6 + (i % 3) * 0.5) + 's', begin: (i * 0.45 + j * 1.3) + 's', repeatCount: 'indefinite', path: dd }, c);
-        an.setAttribute('keyPoints', '0;1'); an.setAttribute('keyTimes', '0;1'); an.setAttribute('calcMode', 'linear');
-        c.setAttribute('opacity', '0');
-        el('animate', { attributeName: 'opacity', values: '0;1;1;0', keyTimes: '0;.12;.88;1', dur: an.getAttribute('dur'), begin: an.getAttribute('begin'), repeatCount: 'indefinite' }, c);
-      });
-      i++;
-    });
-    L.nodes.forEach(function (n) {
-      var g = el('g', { 'class': 'node ' + n[5], transform: 'translate(' + n[1] + ' ' + n[2] + ')' }, ng);
-      el('rect', { width: L.nw, height: L.nh, rx: 11 }, g);
-      el('circle', { cx: 14, cy: 16, r: 3, 'class': 'dotk' }, g);
-      el('text', { x: 24, y: 20, 'class': 'l' }, g).textContent = n[3];
-      el('text', { x: 14, y: 36, 'class': 's' }, g).textContent = n[4];
-    });
-  }
+  /* ---------- architecture diagrams (data in diagrams.js, drawing in diagram.js) ---------- */
   var diagrams = $$('[data-diagram]');
   var mq = window.matchMedia('(max-width: 640px)'), lastM = mq.matches;
-  diagrams.forEach(renderDiagram);
-  function onMQ() { if (mq.matches !== lastM) { lastM = mq.matches; diagrams.forEach(renderDiagram); } }
-  if (mq.addEventListener) mq.addEventListener('change', onMQ); else mq.addListener(onMQ);
+  function drawAll() {
+    diagrams.forEach(function (host) {
+      var key = host.dataset.diagram;
+      window.ZCDiagram.render(host, (window.DIAGRAMS || {})[key], { key: key, mobile: mq.matches, reduce: reduce });
+    });
+  }
+  if (window.ZCDiagram) {
+    drawAll();
+    var onMQ = function () { if (mq.matches !== lastM) { lastM = mq.matches; drawAll(); } };
+    if (mq.addEventListener) mq.addEventListener('change', onMQ); else mq.addListener(onMQ);
+  }
 
   /* ---------- hero network canvas ---------- */
   (function () {
