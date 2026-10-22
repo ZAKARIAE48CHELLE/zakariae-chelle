@@ -48,14 +48,14 @@
     var nodes = (auto.nodes || []).filter(function (n) { return n && n.id; });
     var edges = (auto.edges || []).filter(function (e) { return e && e.length >= 2; });
     if (!nodes.length) return { desktop: { w: 560, h: 120, nw: 112, nh: 46, nodes: [], edges: [] }, mobile: { w: 340, h: 120, nw: 146, nh: 46, nodes: [], edges: [] } };
-    var rank = rankNodes(nodes, edges), cols = [];
-    nodes.forEach(function (n) { (cols[rank[n.id]] = cols[rank[n.id]] || []).push(n); });
-    cols = cols.filter(Boolean);
+    var rank = rankNodes(nodes, edges), groups = [];
+    nodes.forEach(function (n) { (groups[rank[n.id]] = groups[rank[n.id]] || []).push(n); });
+    groups = groups.filter(Boolean);
 
-    // order inside each column by the average position of already-placed neighbours
+    // order inside each group by the average position of already-placed neighbours
     var pos = {};
-    cols.forEach(function (col, ci) {
-      if (ci > 0) {
+    groups.forEach(function (grp, gi) {
+      if (gi > 0) {
         var score = function (n) {
           var xs = [];
           edges.forEach(function (e) {
@@ -64,29 +64,51 @@
           });
           return xs.length ? xs.reduce(function (a, b) { return a + b; }, 0) / xs.length : 999;
         };
-        col.sort(function (a, b) { return score(a) - score(b); });
+        grp.sort(function (a, b) { return score(a) - score(b); });
       }
-      col.forEach(function (n, i) { pos[n.id] = i - (col.length - 1) / 2; });
+      grp.forEach(function (n, i) { pos[n.id] = i - (grp.length - 1) / 2; });
     });
 
-    var NH = 46, PITCH = 84;
-    var nc = cols.length, NW = 112, GAP = 32;
-    var W = Math.max(560, nc * NW + (nc - 1) * GAP + 16);
-    var tallest = Math.max.apply(null, cols.map(function (c) { return c.length; }));
-    var H = tallest * PITCH - (PITCH - NH) + 20;
-    var span = nc * NW + (nc - 1) * GAP, x0 = Math.round((W - span) / 2);
-    var dn = [];
-    cols.forEach(function (col, ci) {
-      var colH = col.length * PITCH - (PITCH - NH), y0 = (H - colH) / 2;
-      col.forEach(function (n, i) { dn.push([n.id, x0 + ci * (NW + GAP), Math.round(y0 + i * PITCH), n.label || n.id, n.sub || '', KINDS.indexOf(n.kind) > -1 ? n.kind : 'svc']); });
-    });
+    var dir = auto.direction || 'LR';   // 'LR' = horizontal (default), 'TB' = vertical
+    var NH = 46, NW = 112, GAP = 32, PITCH = 84;
+    var ng = groups.length;
+    var tallest = Math.max.apply(null, groups.map(function (g) { return g.length; }));
+    var ee = edges.map(function (e) { return [e[0], e[1], e[2] || 'f']; });
+    var dn = [], W, H;
 
+    if (dir === 'TB') {
+      // top-to-bottom: groups are horizontal rows, stacked vertically
+      var widest = Math.max.apply(null, groups.map(function (g) { return g.length; }));
+      var ROW_GAP = 42;
+      var VPITCH = NH + ROW_GAP;
+      W = Math.max(560, widest * NW + (widest - 1) * GAP + 32);
+      H = Math.max(160, 24 + (ng - 1) * VPITCH + NH);
+      groups.forEach(function (grp, gi) {
+        var rowW = grp.length * NW + (grp.length - 1) * GAP;
+        var x0 = Math.round((W - rowW) / 2);
+        grp.forEach(function (n, i) {
+          dn.push([n.id, x0 + i * (NW + GAP), Math.round(14 + gi * VPITCH), n.label || n.id, n.sub || '', KINDS.indexOf(n.kind) > -1 ? n.kind : 'svc']);
+        });
+      });
+    } else {
+      // left-to-right (original): groups are vertical columns, placed left to right
+      W = Math.max(560, ng * NW + (ng - 1) * GAP + 16);
+      H = tallest * PITCH - (PITCH - NH) + 20;
+      var span = ng * NW + (ng - 1) * GAP, x0 = Math.round((W - span) / 2);
+      groups.forEach(function (grp, gi) {
+        var grpH = grp.length * PITCH - (PITCH - NH), y0 = (H - grpH) / 2;
+        grp.forEach(function (n, i) {
+          dn.push([n.id, x0 + gi * (NW + GAP), Math.round(y0 + i * PITCH), n.label || n.id, n.sub || '', KINDS.indexOf(n.kind) > -1 ? n.kind : 'svc']);
+        });
+      });
+    }
+
+    // mobile: always a 2-column zigzag grid
     var ordered = [];
-    cols.forEach(function (c) { c.forEach(function (n) { ordered.push(n); }); });
+    groups.forEach(function (g) { g.forEach(function (n) { ordered.push(n); }); });
     var mn = ordered.map(function (n, i) { return [n.id, i % 2 ? 186 : 8, 8 + Math.floor(i / 2) * 88, n.label || n.id, n.sub || '', KINDS.indexOf(n.kind) > -1 ? n.kind : 'svc']; });
     var MH = 8 + Math.ceil(ordered.length / 2) * 88 - 42 + 8;
 
-    var ee = edges.map(function (e) { return [e[0], e[1], e[2] || 'f']; });
     return {
       desktop: { w: W, h: H, nw: NW, nh: NH, nodes: dn, edges: ee },
       mobile: { w: 340, h: Math.max(MH, 110), nw: 146, nh: NH, nodes: mn, edges: ee }
@@ -150,7 +172,7 @@
     (L.edges || []).forEach(function (e) {
       if (!rect[e[0]] || !rect[e[1]]) return;
       var d = pathFor(rect[e[0]], rect[e[1]]);
-      var p = el('path', { d: d, 'class': 'edge' + (e[2] === 'c' ? ' c' : ''), 'marker-end': 'url(#' + id + ')' }, eg);
+      var p = el('path', { d: d, 'class': 'edge' + (e[2] === 'c' ? ' c' : ''), 'data-from': e[0], 'data-to': e[1], 'marker-end': 'url(#' + id + ')' }, eg);
       if (e[2] === 'b') p.setAttribute('marker-start', 'url(#' + id + ')');
       if (opts.reduce || e[2] === 'c') return;
       (e[2] === 'b' ? [d, rev(d)] : [d]).forEach(function (dd, j) {
@@ -163,7 +185,7 @@
       i++;
     });
     L.nodes.forEach(function (n) {
-      var g = el('g', { 'class': 'node ' + n[5], transform: 'translate(' + n[1] + ' ' + n[2] + ')' }, ng);
+      var g = el('g', { 'class': 'node ' + n[5], 'data-node-id': n[0], transform: 'translate(' + n[1] + ' ' + n[2] + ')' }, ng);
       el('rect', { width: L.nw, height: L.nh, rx: 11 }, g);
       el('circle', { cx: 14, cy: 16, r: 3, 'class': 'dotk' }, g);
       el('text', { x: 24, y: 20, 'class': 'l' }, g).textContent = n[3];
@@ -171,5 +193,5 @@
     });
   }
 
-  return { render: render, layout: layout, resolve: resolve, KINDS: KINDS };
+  return { render: render, layout: layout, resolve: resolve, pathFor: pathFor, KINDS: KINDS };
 });
