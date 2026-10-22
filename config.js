@@ -25,6 +25,11 @@ window.SITE = {
       "demo": "",
       "report": ""
     },
+    "autonomous-ai-browser-agent-local-llm-an": {
+      "github": "",
+      "demo": "",
+      "report": ""
+    },
     "skin": {
       "github": "",
       "demo": "",
